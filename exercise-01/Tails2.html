@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)file:///C:/Users/A.G/Downloads/Tails_Research_Mohammad_Rajabi_A4%20(1).html -->
+<html lang="fa" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحقیق درباره سیستم‌عامل Tails</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+:root{--gold:#f2c230;--gold2:#ffd95a;--ink:#111;--panel:#1b1b1b;--muted:#bdbdbd;--line:#55451a}
+*{box-sizing:border-box}
+body{margin:0;background:#090909;color:#f4f1e8;font-family:'Vazirmatn',Tahoma,sans-serif;line-height:2}
+.page{width:min(920px,94%);min-height:1120px;margin:28px auto;padding:58px 68px;background:linear-gradient(145deg,#171717,#101010);border:1px solid #3d3317;box-shadow:0 12px 40px #000;border-radius:14px;position:relative;page-break-after:always;overflow:hidden}
+.page:before{content:"";position:absolute;top:0;right:0;width:100%;height:7px;background:linear-gradient(90deg,#8e6b00,var(--gold),#8e6b00)}
+h1,h2,h3{color:var(--gold2);line-height:1.6}
+h1{font-size:2.2rem;margin:12px 0}
+h2{font-size:1.55rem;border-bottom:1px solid var(--line);padding-bottom:9px;margin-top:0}
+h3{font-size:1.13rem;margin-bottom:5px}
+p{margin:10px 0}
+.lead{font-size:1.12rem;color:#e8dfc5}
+.gold{color:var(--gold2);font-weight:700}
+.muted{color:var(--muted)}
+.cover{display:flex;flex-direction:column;justify-content:space-between;text-align:center;min-height:1120px}
+.bismillah{font-size:1.35rem;color:var(--gold2);margin-top:22px}
+.cover-title{margin:auto 0}
+.cover-title .eyebrow{letter-spacing:2px;color:#c7a63a;font-size:.9rem}
+.cover-title h1{font-size:3.1rem}
+.cover-title h2{border:0;font-size:1.35rem;color:#eee}
+.info{width:min(570px,100%);margin:35px auto 0;border:1px solid var(--line);border-radius:12px;padding:18px 28px;text-align:right;background:#202020}
+.info div{padding:5px 0;border-bottom:1px dashed #4a4024}
+.info div:last-child{border:0}
+.cover-foot{color:#a9a18d;font-size:.9rem}
+.callout{border-right:4px solid var(--gold);background:#242116;padding:14px 18px;border-radius:8px;margin:18px 0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:18px 0}
+.card{background:#202020;border:1px solid #39301a;border-radius:10px;padding:14px 17px}
+.card h3{margin-top:0}
+figure{margin:18px auto;text-align:center}
+figure img{max-width:100%;max-height:290px;object-fit:contain;border-radius:10px;border:1px solid #4c401f;background:#080808;padding:6px}
+figcaption{font-size:.85rem;color:#bcb39c;margin-top:6px}
+table{width:100%;border-collapse:collapse;margin:15px 0;font-size:.92rem}
+th,td{border:1px solid #55451a;padding:9px 11px;text-align:right;vertical-align:top}
+th{background:#332a12;color:#ffdf70}
+tr:nth-child(even){background:#1d1d1d}
+ul,ol{padding-right:24px}
+li{margin:5px 0}
+code{direction:ltr;unicode-bidi:embed;background:#292929;color:#ffdf70;padding:2px 6px;border-radius:4px;font-family:Consolas,monospace}
+.diagram{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:#1c1c1c;border:1px solid #51421c;padding:20px;border-radius:10px;margin:18px 0}
+.diagram span{border:1px solid #b18b1e;border-radius:8px;padding:10px 14px;color:#ffe28a;background:#29230f}
+.diagram b{color:#d6b64b}
+.qa{margin:12px 0;padding:12px 16px;border:1px solid #39301a;border-radius:9px;background:#1d1d1d}
+.qa strong{color:#ffdc63}
+.sources a{color:#ffdc63;word-break:break-word}
+.footer{position:absolute;bottom:24px;left:40px;right:40px;border-top:1px solid #423719;padding-top:8px;display:flex;justify-content:space-between;color:#a99e7c;font-size:.82rem}
+.end{text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:950px}
+.end h1{font-size:2.5rem}
+.small{font-size:.88rem;color:#c6bea9}
+@media(max-width:650px){.page{padding:35px 22px;min-height:auto;margin:12px auto}.cover{min-height:850px}.cover-title h1{font-size:2.3rem}.grid{grid-template-columns:1fr}.footer{position:static;margin-top:50px}}
+@page { size: A4 portrait; margin: 0; }
+@media print{
+ html, body { width:210mm; margin:0 !important; padding:0 !important; background:#101010 !important; }
+ body { color:#f4f1e8 !important; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+ .page {
+  width:210mm !important; height:297mm !important; min-height:297mm !important;
+  margin:0 !important; padding:14mm 15mm 19mm !important;
+  border:0 !important; border-radius:0 !important; box-shadow:none !important;
+  background:linear-gradient(145deg,#171717,#101010) !important;
+  color:#f4f1e8 !important; overflow:hidden !important;
+  page-break-after:always !important; break-after:page !important;
+  position:relative !important; box-sizing:border-box !important;
+ }
+ .page:before { display:block !important; background:linear-gradient(90deg,#8e6b00,#f2c230,#8e6b00) !important; }
+ h1,h2,h3,.gold,.bismillah { color:#ffd95a !important; }
+ h1 { font-size:17pt !important; margin:5px 0 8px !important; }
+ h2 { font-size:14pt !important; margin:0 0 8px !important; padding-bottom:5px !important; }
+ h3 { font-size:10.2pt !important; margin:7px 0 2px !important; }
+ p, li { font-size:8.65pt !important; line-height:1.55 !important; }
+ p { margin:5px 0 !important; }
+ li { margin:2px 0 !important; }
+ ul,ol { margin-top:5px !important; margin-bottom:6px !important; padding-right:19px !important; }
+ .lead { font-size:10pt !important; }
+ .grid { gap:7px !important; margin:9px 0 !important; }
+ .card { padding:8px 10px !important; background:#202020 !important; border-color:#55451a !important; }
+ .card h3 { margin-top:0 !important; }
+ .callout,.qa,.diagram { background:#242116 !important; color:#f4f1e8 !important; border-color:#55451a !important; margin:8px 0 !important; padding:8px 11px !important; }
+ .qa p { margin:3px 0 0 !important; }
+ table { font-size:7.8pt !important; margin:8px 0 !important; }
+ th,td { padding:5px 7px !important; border-color:#55451a !important; }
+ th { background:#332a12 !important; color:#ffdf70 !important; }
+ tr:nth-child(even) { background:#1d1d1d !important; }
+ figure { margin:8px auto !important; }
+ figure img { max-height:45mm !important; }
+ figure svg { max-height:48mm !important; }
+ figcaption,.small { font-size:7.5pt !important; color:#c6bea9 !important; }
+ .info { margin:15px auto 0 !important; padding:10px 18px !important; background:#202020 !important; border-color:#55451a !important; }
+ .info div { padding:3px 0 !important; }
+ .cover { min-height:297mm !important; }
+ .cover-title h1 { font-size:29pt !important; margin:12px 0 !important; }
+ .cover-title h2 { font-size:14pt !important; }
+ .cover-title .eyebrow { font-size:9pt !important; }
+ .bismillah { font-size:15pt !important; }
+ .cover-foot { color:#c6bea9 !important; font-size:8pt !important; }
+ .end { min-height:297mm !important; justify-content:center !important; }
+ .end h1 { font-size:25pt !important; }
+ .footer { position:absolute !important; bottom:7mm !important; left:14mm !important; right:14mm !important; margin:0 !important; padding-top:4px !important; color:#bdb39a !important; border-color:#55451a !important; font-size:7.5pt !important; }
+ a { color:#ffdc63 !important; }
+ code { color:#ffdf70 !important; background:#292929 !important; }
+}
+</style>
+</head>
+<body>
+
+<section class="page cover">
+ <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+ <div class="cover-title">
+  <div class="eyebrow">پژوهش در حوزه سیستم‌عامل‌های مبتنی بر لینوکس</div>
+  <h1>آشنایی جامع با Tails</h1>
+  <h2>سیستم‌عامل زنده با تمرکز بر حریم خصوصی و ناشناس‌ماندن در اینترنت</h2>
+  <div class="info">
+   <div><span class="gold">نام دانشجو:</span> محمد رجبی</div>
+   <div><span class="gold">نام استاد:</span> استاد میرزانژاد</div>
+   <div><span class="gold">نام درس:</span> آزمایشگاه سیستم‌عامل لینوکس</div>
+   <div><span class="gold">عنوان تحقیق:</span> بررسی سیستم‌عامل Tails</div>
+   <div><span class="gold">سال تحصیلی:</span> ۱۴۰۵</div>
+  </div>
+ </div>
+ <div class="cover-foot">تحقیق آموزشی ـ تهیه‌شده با هدف شناخت مفاهیم، ساختار و کاربردهای Tails</div>
+</section>
+
+<section class="page">
+ <h2>فهرست مطالب و مقدمه</h2>
+ <ol>
+  <li>مقدمه و معرفی Tails</li><li>تاریخچه و هدف طراحی</li><li>ویژگی‌ها و اصول امنیتی</li>
+  <li>معماری و نحوه کار</li><li>آشنایی با Tor و محدودیت‌های آن</li><li>ابزارها و برنامه‌های همراه</li>
+  <li>حافظه ماندگار (Persistent Storage)</li><li>موارد استفاده و محدودیت‌ها</li>
+  <li>مقایسه با سیستم‌عامل‌های دیگر</li><li>مفاهیم آزمایشگاهی و پرسش‌های متداول</li><li>جمع‌بندی و منابع</li>
+ </ol>
+ <h3>مقدمه</h3>
+ <p>امروزه بخش زیادی از فعالیت‌های روزمره از طریق اینترنت انجام می‌شود. هنگام استفاده از وب‌سایت‌ها و سرویس‌های آنلاین، ممکن است اطلاعاتی مانند نشانی IP، مشخصات مرورگر، کوکی‌ها و الگوی فعالیت کاربر ثبت شود. به همین دلیل، حریم خصوصی و امنیت اطلاعات به موضوعاتی مهم در دنیای فناوری اطلاعات تبدیل شده‌اند.</p>
+ <p><span class="gold">Tails</span> یک توزیع لینوکس مبتنی بر Debian است که با هدف حفظ حریم خصوصی و کمک به ناشناس‌ماندن کاربران طراحی شده است. این سیستم‌عامل به‌صورت زنده (Live) اجرا می‌شود و به‌طور پیش‌فرض ارتباط اینترنتی برنامه‌ها را از طریق شبکه Tor عبور می‌دهد. تمرکز این تحقیق، شناخت علمی و آموزشی Tails، اجزای اصلی آن، مزایا و محدودیت‌هایش است.</p>
+ <div class="callout"><strong>نکته کلیدی:</strong> Tails ابزار جادویی یا تضمین‌کننده ناشناس‌ماندن کامل نیست. امنیت آن به نحوه استفاده، وضعیت دستگاه، رفتار کاربر و تهدیدهای موجود بستگی دارد.</div>
+ <h3>هدف تحقیق</h3>
+ <p>در پایان مطالعه باید بتوانیم توضیح دهیم Tails چیست، چرا به آن سیستم‌عامل زنده می‌گویند، Tor چه نقشی دارد، اطلاعات چگونه مدیریت می‌شوند و این سیستم‌عامل چه محدودیت‌هایی دارد.</p>
+ <div class="footer"><span>آزمایشگاه سیستم‌عامل لینوکس</span><span>صفحه ۲</span></div>
+</section>
+
+<section class="page">
+ <h2>۱. Tails چیست؟</h2>
+ <p>نام Tails از عبارت <span class="gold">The Amnesic Incognito Live System</span> گرفته شده است. واژه Amnesic به مفهوم «فراموش‌کار» اشاره دارد؛ یعنی سیستم‌عامل تلاش می‌کند پس از خاموش‌شدن، ردپای فعالیت‌های همان نشست را روی حافظه‌ای که از آن اجرا شده باقی نگذارد. واژه Incognito نیز به هدف افزایش حریم خصوصی و کاهش قابلیت ردیابی فعالیت آنلاین اشاره می‌کند.</p>
+ <p>Tails یک سیستم‌عامل کامل بر پایه لینوکس است، نه صرفاً یک مرورگر یا نرم‌افزار VPN. می‌توان آن را از یک حافظه USB یا رسانه زنده سازگار اجرا کرد. در این حالت، رایانه از محیط Tails راه‌اندازی می‌شود و کاربر می‌تواند از ابزارهای دسکتاپ و برنامه‌های آن استفاده کند.</p>
+ <figure>
+  <svg viewBox="0 0 760 245" role="img" aria-label="تصویر شماتیک حافظه USB و نماد لایه‌های شبکه Tor" style="width:100%;max-width:690px;height:auto;background:#111;border:1px solid #51421c;border-radius:12px;padding:12px">
+   <defs><lineargradient id="usb" x1="0" x2="1"><stop stop-color="#d4a91f"></stop><stop offset="1" stop-color="#80600b"></stop></lineargradient></defs>
+   <rect x="55" y="78" width="255" height="92" rx="18" fill="url(#usb)" stroke="#ffe17a" stroke-width="3"></rect>
+   <rect x="30" y="101" width="38" height="46" rx="5" fill="#d9d9d9"></rect><rect x="22" y="108" width="10" height="12" fill="#777"></rect><rect x="22" y="128" width="10" height="12" fill="#777"></rect>
+   <text x="185" y="132" font-size="30" font-weight="bold" fill="#17120a" text-anchor="middle">TAILS</text>
+   <path d="M340 124 H405" stroke="#f2c230" stroke-width="4" stroke-linecap="round"></path><path d="M395 114 L407 124 L395 134" fill="none" stroke="#f2c230" stroke-width="4"></path>
+   <circle cx="520" cy="124" r="75" fill="#28210e" stroke="#f2c230" stroke-width="3"></circle>
+   <circle cx="520" cy="124" r="55" fill="none" stroke="#e7c14b" stroke-width="3"></circle>
+   <circle cx="520" cy="124" r="34" fill="none" stroke="#f5df91" stroke-width="3"></circle>
+   <circle cx="520" cy="124" r="12" fill="#f2c230"></circle>
+   <text x="520" y="222" font-size="18" fill="#ffdf70" text-anchor="middle">لایه‌های ارتباطی Tor</text>
+   <text x="180" y="205" font-size="18" fill="#ffdf70" text-anchor="middle">سیستم‌عامل زنده روی USB</text>
+  </svg>
+  <figcaption>نمای مفهومی Tails به‌عنوان سیستم‌عامل زنده و ارتباط آن با شبکه Tor (تصویر شماتیک آموزشی).</figcaption>
+ </figure>
+ <div class="grid">
+  <div class="card"><h3>سیستم‌عامل زنده</h3><p>از رسانه قابل‌حمل اجرا می‌شود و الزاماً نیازی به نصب روی دیسک داخلی رایانه ندارد.</p></div>
+  <div class="card"><h3>مبتنی بر Debian</h3><p>از خانواده توزیع‌های لینوکس است و از زیرساخت و بسته‌های نرم‌افزاری Debian بهره می‌برد.</p></div>
+  <div class="card"><h3>تمرکز بر حریم خصوصی</h3><p>تنظیمات پیش‌فرض آن برای کاهش افشای اطلاعات و عبور ترافیک اینترنتی از Tor طراحی شده‌اند.</p></div>
+  <div class="card"><h3>حافظه موقت</h3><p>در حالت معمول، اطلاعات نشست در حافظه موقت قرار می‌گیرند و با خاموش‌شدن از دسترس خارج می‌شوند.</p></div>
+ </div>
+ <h3>تفاوت Tails با یک لینوکس معمولی</h3>
+ <p>توزیع‌هایی مانند Ubuntu یا Linux Mint معمولاً برای نصب و استفاده روزمره و نگهداری دائمی فایل‌ها روی رایانه طراحی شده‌اند. اما Tails برای استفاده در نشست‌های قابل‌حمل و با تأکید ویژه بر حریم خصوصی ساخته شده است. بنابراین، هدف و تنظیمات پیش‌فرض آن با یک سیستم‌عامل عمومی تفاوت دارد.</p>
+ <div class="footer"><span>معرفی سیستم‌عامل Tails</span><span>صفحه ۳</span></div>
+</section>
+
+<section class="page">
+ <h2>۲. تاریخچه و هدف طراحی</h2>
+ <p>Tails حاصل تلاش یک جامعه و پروژه نرم‌افزار آزاد است. این پروژه در ابتدا با نام <span class="gold">Incognito</span> شناخته می‌شد و بعداً به Tails تغییر نام داد. توسعه آن با همکاری مشارکت‌کنندگان داوطلب و سازمان‌ها و افراد پشتیبان نرم‌افزار آزاد ادامه یافته است.</p>
+ <p>هدف اصلی پروژه فراهم‌کردن محیطی قابل‌حمل است که در آن، ابزارهای حریم خصوصی از ابتدا در سیستم‌عامل ادغام شده باشند. به‌جای اینکه کاربر مجبور باشد چندین ابزار را جداگانه نصب و پیکربندی کند، Tails مجموعه‌ای از تنظیمات و برنامه‌های مرتبط را در یک محیط یکپارچه ارائه می‌دهد.</p>
+ <h3>اصول طراحی</h3>
+ <ol>
+  <li><strong>قابل‌حمل بودن:</strong> امکان اجرای محیط کاری از رسانه جداشدنی روی رایانه‌های سازگار.</li>
+  <li><strong>کاهش ردپای محلی:</strong> ذخیره‌نکردن دائمی داده‌های نشست به‌صورت پیش‌فرض.</li>
+  <li><strong>حریم خصوصی شبکه:</strong> هدایت ارتباط برنامه‌ها از مسیر Tor و جلوگیری از اتصال مستقیم برنامه‌های پشتیبانی‌نشده.</li>
+  <li><strong>نرم‌افزار آزاد:</strong> توسعه عمومی و امکان بررسی کد منبع توسط جامعه.</li>
+  <li><strong>تنظیمات امن پیش‌فرض:</strong> کاهش نیاز به پیکربندی دستی برای قابلیت‌های اصلی حریم خصوصی.</li>
+ </ol>
+ <div class="callout">Tails برای همه نوع تهدید طراحی نشده است. برای مثال، اگر رایانه میزبان آلوده یا دست‌کاری شده باشد، اجرای یک سیستم‌عامل زنده به‌تنهایی نمی‌تواند امنیت کامل ایجاد کند.</div>
+ <h3>چرا نام «فراموش‌کار»؟</h3>
+ <p>در حالت عادی، Tails اطلاعات کاربر را فقط برای مدت نشست نگه می‌دارد. پس از خاموش‌شدن، محتوای موجود در حافظه موقت پاک یا از دسترس خارج می‌شود. البته این ویژگی به معنی حذف خودکار تمام آثار احتمالی از هر سخت‌افزار یا شبکه‌ای نیست؛ برای نمونه، روتر، ارائه‌دهنده اینترنت یا سرویس مقصد ممکن است اطلاعاتی مستقل از رایانه ثبت کنند.</p>
+ <div class="footer"><span>تاریخچه و اصول طراحی</span><span>صفحه ۴</span></div>
+</section>
+
+<section class="page">
+ <h2>۳. ویژگی‌ها و اصول امنیتی مهم</h2>
+ <h3>۳-۱. اجرای زنده (Live System)</h3>
+ <p>در حالت Live، سیستم‌عامل از رسانه‌ای مانند USB اجرا می‌شود. در نتیجه، کاربر می‌تواند بدون نصب معمول سیستم‌عامل روی دیسک داخلی از محیط آن استفاده کند. این ویژگی برای محیط‌های قابل‌حمل و نشست‌های موقت کاربرد دارد.</p>
+ <h3>۳-۲. مسیریابی از طریق Tor</h3>
+ <p>در Tails، ارتباط برنامه‌های اینترنتی به‌گونه‌ای تنظیم شده است که از شبکه Tor عبور کند. هدف، جداکردن نشانی IP واقعی کاربر از مقصد وب‌سایت و دشوارترکردن پیوند دادن فعالیت‌های آنلاین به یک اتصال مشخص است. ارتباط‌هایی که امکان عبور امن از Tor را ندارند، ممکن است مسدود شوند تا نشت ناخواسته اطلاعات کاهش یابد.</p>
+ <h3>۳-۳. پاک‌شدن اطلاعات نشست</h3>
+ <p>بخش مهمی از فعالیت‌های جاری در حافظه موقت انجام می‌شود. پس از خاموش‌شدن، داده‌های موقت نشست باقی نمی‌مانند؛ با این حال، فایل‌هایی که کاربر عمداً در حافظه ماندگار یا رسانه دیگری ذخیره کند، مشمول این قاعده نیستند.</p>
+ <h3>۳-۴. رمزنگاری حافظه ماندگار</h3>
+ <p>قابلیت Persistent Storage به کاربر اجازه می‌دهد برخی داده‌ها و تنظیمات را بین نشست‌ها نگه دارد. این بخش با رمزنگاری محافظت می‌شود و برای دسترسی به آن باید گذرواژه تعیین‌شده وارد شود. رمزنگاری، خطر دسترسی غیرمجاز در صورت گم‌شدن رسانه را کاهش می‌دهد، اما جایگزین گذرواژه قوی و نگهداری امن آن نیست.</p>
+ <h3>۳-۵. نرم‌افزارهای از پیش آماده</h3>
+ <p>Tails مجموعه‌ای از ابزارهای کاربردی برای وب‌گردی، ارتباط، کار با فایل‌ها و رمزنگاری را در محیط خود فراهم می‌کند. فهرست و نسخه برنامه‌ها ممکن است با انتشار نسخه‌های جدید تغییر کند.</p>
+ <div class="callout"><strong>اصل مهم امنیت:</strong> ناشناس‌ماندن فقط به ابزار وابسته نیست. ورود به حساب‌های شخصی، انتشار اطلاعات هویتی یا بازکردن فایل‌های نامطمئن می‌تواند هویت یا اطلاعات کاربر را آشکار کند.</div>
+ <div class="footer"><span>ویژگی‌های امنیتی</span><span>صفحه ۵</span></div>
+</section>
+
+<section class="page">
+ <h2>۴. معماری و نحوه کار Tails</h2>
+ <p>برای فهم ساختار Tails بهتر است آن را در سه بخش کلی بررسی کنیم: رسانه راه‌انداز، محیط سیستم‌عامل و لایه ارتباط شبکه.</p>
+ <div class="diagram">
+  <span>رایانه</span><b>←</b><span>راه‌اندازی از USB</span><b>←</b><span>محیط زنده Tails</span>
+ </div>
+ <div class="diagram">
+  <span>برنامه کاربر</span><b>←</b><span>محدودیت‌های شبکه Tails</span><b>←</b><span>شبکه Tor</span><b>←</b><span>وب‌سایت مقصد</span>
+ </div>
+ <h3>مراحل کلی یک نشست</h3>
+ <ol>
+  <li>رایانه از رسانه حاوی Tails راه‌اندازی می‌شود.</li>
+  <li>محیط دسکتاپ بارگذاری می‌شود و کاربر تنظیمات اولیه موردنیاز را انجام می‌دهد.</li>
+  <li>اتصال شبکه برقرار می‌شود و سرویس‌های لازم برای استفاده از Tor آماده می‌شوند.</li>
+  <li>برنامه‌های اینترنتی از مسیرهای تعریف‌شده در Tails به شبکه Tor متصل می‌شوند.</li>
+  <li>کاربر فعالیت خود را در محیط انجام می‌دهد و در صورت نیاز، فایل‌های مشخص را در حافظه ماندگار ذخیره می‌کند.</li>
+  <li>با خاموش‌کردن سیستم، نشست موقت پایان می‌یابد؛ داده‌های ذخیره‌شده در حافظه ماندگار باقی می‌مانند.</li>
+ </ol>
+ <h3>چرا اتصال مستقیم برنامه‌ها محدود می‌شود؟</h3>
+ <p>اگر یک برنامه بدون عبور از Tor به اینترنت وصل شود، ممکن است نشانی IP واقعی یا اطلاعات اتصال را آشکار کند. به همین دلیل Tails از سازوکارهای محدودکننده شبکه استفاده می‌کند تا برنامه‌ها نتوانند آزادانه مسیر Tor را دور بزنند. این محدودیت یکی از تفاوت‌های مهم Tails با یک لینوکس معمولی است.</p>
+ <h3>نقش هسته لینوکس و محیط دسکتاپ</h3>
+ <p>مانند سایر توزیع‌های لینوکس، Tails نیز از هسته Linux برای مدیریت پردازنده، حافظه، دستگاه‌ها و فرایندها استفاده می‌کند. محیط گرافیکی امکان کار با پنجره‌ها، فایل‌ها و برنامه‌ها را فراهم می‌سازد. ابزارهای امنیتی و تنظیمات شبکه در کنار این اجزا قرار می‌گیرند.</p>
+ <div class="footer"><span>معماری و روند اجرا</span><span>صفحه ۶</span></div>
+</section>
+
+<section class="page">
+ <h2>۵. آشنایی با Tor و نقش آن در Tails</h2>
+ <p><span class="gold">Tor</span> کوتاه‌شده The Onion Router نام شبکه‌ای است که با عبور دادن ارتباط از چند رله، تلاش می‌کند ارتباط مستقیم میان مبدأ و مقصد را دشوارتر کند. نام پیازی به لایه‌های رمزنگاری در مسیر ارتباط اشاره دارد.</p>
+ <h3>مفهوم مسیر چندمرحله‌ای</h3>
+ <p>در یک اتصال معمولی، دستگاه کاربر مستقیماً با سرویس مقصد ارتباط برقرار می‌کند و مقصد معمولاً نشانی IP اتصال را می‌بیند. در Tor، ارتباط از مسیری شامل چند رله عبور می‌کند. هر رله اطلاعات محدودی درباره بخش مربوط به خود از مسیر دارد؛ این طراحی به کاهش امکان مشاهده هم‌زمان مبدأ و مقصد توسط یک نقطه منفرد کمک می‌کند.</p>
+ <div class="diagram">
+  <span>کاربر</span><b>←</b><span>رله ورودی</span><b>←</b><span>رله میانی</span><b>←</b><span>رله خروجی</span><b>←</b><span>وب‌سایت</span>
+ </div>
+ <p class="small">نمای بالا شماتیک و ساده‌شده است؛ مسیر واقعی Tor می‌تواند جزئیات فنی بیشتری داشته باشد.</p>
+ <h3>نکته مهم درباره رمزنگاری</h3>
+ <p>Tor مسیر ارتباط را درون شبکه خود رمزنگاری لایه‌ای می‌کند، اما امنیت محتوای ارتباط تا مقصد به پروتکل مورد استفاده نیز وابسته است. برای مثال، استفاده از HTTPS همچنان اهمیت دارد؛ زیرا رمزنگاری HTTPS از محتوای ارتباط میان مرورگر و وب‌سایت در برابر مشاهده یا تغییر توسط واسطه‌ها محافظت می‌کند.</p>
+ <h3>محدودیت‌های Tor</h3>
+ <ul>
+  <li>سرعت اتصال ممکن است از اتصال مستقیم کمتر باشد.</li>
+  <li>برخی وب‌سایت‌ها ترافیک خروجی Tor را محدود یا مسدود می‌کنند.</li>
+  <li>Tor تضمین نمی‌کند که کاربر با ورود به حساب شخصی ناشناس بماند.</li>
+  <li>در برابر همه انواع تحلیل ترافیک یا نظارت گسترده مصونیت مطلق ایجاد نمی‌کند.</li>
+  <li>بازکردن فایل‌های دانلودشده با برنامه‌های خارج از محیط محافظت‌شده می‌تواند خطر ایجاد کند.</li>
+ </ul>
+ <div class="callout">Tor و Tails دو چیز متفاوت‌اند: Tor یک شبکه ارتباطی است؛ Tails یک سیستم‌عامل است که Tor را به‌صورت یکپارچه در طراحی خود به کار می‌گیرد.</div>
+ <div class="footer"><span>شبکه Tor</span><span>صفحه ۷</span></div>
+</section>
+
+<section class="page">
+ <h2>۶. برنامه‌ها و ابزارهای همراه</h2>
+ <p>Tails تنها یک هسته لینوکس نیست؛ بلکه محیطی دسکتاپ با مجموعه‌ای از نرم‌افزارهای کاربردی ارائه می‌دهد. نام و نسخه برنامه‌ها ممکن است در نسخه‌های مختلف تغییر کند، بنابراین فهرست زیر جنبه معرفی دارد.</p>
+ <table>
+  <tbody><tr><th>گروه</th><th>کاربرد</th><th>نمونه یا توضیح</th></tr>
+  <tr><td>وب‌گردی</td><td>دسترسی به وب از مسیر Tor</td><td>Tor Browser</td></tr>
+  <tr><td>مدیریت فایل</td><td>مرتب‌سازی، کپی و مشاهده فایل‌ها</td><td>مدیر فایل محیط دسکتاپ</td></tr>
+  <tr><td>رمزنگاری</td><td>محافظت از فایل‌ها و داده‌ها</td><td>ابزارهای رمزنگاری و مدیریت کلید</td></tr>
+  <tr><td>ارتباط</td><td>ارسال و دریافت پیام یا ایمیل</td><td>برنامه‌های ارتباطی موجود در نسخه مربوط</td></tr>
+  <tr><td>کارهای اداری</td><td>ویرایش متن و اسناد</td><td>ابزارهای اداری آزاد</td></tr>
+  <tr><td>مدیریت گذرواژه</td><td>نگهداری امن اطلاعات ورود</td><td>ابزار مدیریت گذرواژه در نسخه‌های پشتیبانی‌شده</td></tr>
+ </tbody></table>
+ <h3>مرورگر Tor</h3>
+ <p>مرورگر Tor نسخه‌ای از مرورگر Firefox است که برای کار با شبکه Tor و کاهش برخی روش‌های ردیابی پیکربندی شده است. بهتر است تنظیمات پیش‌فرض آن بی‌دلیل تغییر نکند؛ زیرا تغییرات زیاد یا نصب افزونه‌های خاص ممکن است باعث شود مرورگر از الگوی معمول کاربران Tor متفاوت شود و قابلیت شناسایی افزایش یابد.</p>
+ <h3>ابزارهای رمزنگاری</h3>
+ <p>رمزنگاری به تبدیل داده قابل‌خواندن به شکلی گفته می‌شود که بدون کلید مناسب قابل‌فهم نباشد. این ابزارها می‌توانند برای حفاظت از فایل‌ها یا ارتباطات استفاده شوند. رمزنگاری زمانی مؤثر است که کلیدها و گذرواژه‌ها نیز به‌درستی نگهداری شوند.</p>
+ <h3>نرم‌افزار آزاد</h3>
+ <p>بخش مهمی از ابزارهای Tails نرم‌افزار آزاد هستند. در نرم‌افزار آزاد، مجوز استفاده، بررسی، تغییر و بازتوزیع کد مطابق شرایط مجوز فراهم است. این ویژگی به شفافیت و امکان بررسی مستقل کمک می‌کند.</p>
+ <div class="footer"><span>ابزارهای نرم‌افزاری</span><span>صفحه ۸</span></div>
+</section>
+
+<section class="page">
+ <h2>۷. حافظه ماندگار (Persistent Storage)</h2>
+ <p>یکی از پرسش‌های مهم درباره Tails این است: اگر سیستم‌عامل پس از خاموش‌شدن اطلاعات را نگه نمی‌دارد، چگونه می‌توان فایل‌ها یا تنظیمات موردنیاز را برای نشست بعد حفظ کرد؟ پاسخ، قابلیت <span class="gold">Persistent Storage</span> است.</p>
+ <p>حافظه ماندگار بخشی رمزنگاری‌شده روی رسانه Tails است که برای نگهداری انتخابی برخی داده‌ها و تنظیمات بین نشست‌ها استفاده می‌شود. کاربر می‌تواند مشخص کند چه نوع اطلاعاتی در این فضا باقی بماند.</p>
+ <h3>تفاوت حافظه موقت و ماندگار</h3>
+ <table>
+  <tbody><tr><th>ویژگی</th><th>حافظه موقت</th><th>حافظه ماندگار</th></tr>
+  <tr><td>ماندن پس از خاموشی</td><td>خیر، در حالت معمول</td><td>بله، برای داده‌های ذخیره‌شده</td></tr>
+  <tr><td>هدف</td><td>فعالیت‌های همان نشست</td><td>نگهداری انتخابی اطلاعات</td></tr>
+  <tr><td>رمزنگاری</td><td>رفتار آن به شیوه اجرا و حافظه وابسته است</td><td>فضای ماندگار رمزنگاری می‌شود</td></tr>
+  <tr><td>کنترل کاربر</td><td>عمدتاً موقت و خودکار</td><td>انتخابی و وابسته به تنظیمات</td></tr>
+ </tbody></table>
+ <h3>چه اطلاعاتی ممکن است نگهداری شوند؟</h3>
+ <ul>
+  <li>اسناد و فایل‌هایی که کاربر برای نگهداری انتخاب می‌کند.</li>
+  <li>برخی تنظیمات و داده‌های برنامه‌ها، در صورت پشتیبانی نسخه Tails.</li>
+  <li>کلیدها یا اطلاعات موردنیاز ابزارهای رمزنگاری، در صورت فعال‌سازی قابلیت مربوط.</li>
+ </ul>
+ <div class="callout"><strong>توجه:</strong> حافظه ماندگار باید آگاهانه و با انتخاب موارد لازم استفاده شود. ذخیره‌کردن همه اطلاعات، با هدف کاهش ردپای محلی در Tails سازگار نیست. همچنین فراموش‌کردن گذرواژه می‌تواند دسترسی به داده‌های رمزنگاری‌شده را غیرممکن کند.</div>
+ <h3>مثال ساده</h3>
+ <p>فرض کنید کاربر در یک نشست، یادداشت کوتاهی ایجاد می‌کند. اگر آن را فقط در فضای موقت نگه دارد، پس از خاموش‌شدن برای نشست بعد در دسترس نخواهد بود. اما اگر محل ذخیره‌سازی ماندگار و مناسب را انتخاب کند، فایل می‌تواند پس از راه‌اندازی مجدد نیز باقی بماند.</p>
+ <div class="footer"><span>مدیریت داده‌ها</span><span>صفحه ۹</span></div>
+</section>
+
+<section class="page">
+ <h2>۸. موارد استفاده، مزایا و محدودیت‌ها</h2>
+ <h3>موارد استفاده مشروع و آموزشی</h3>
+ <ul>
+  <li>آموزش مفاهیم لینوکس زنده و راه‌اندازی سیستم‌عامل از رسانه قابل‌حمل.</li>
+  <li>مطالعه مفاهیم حریم خصوصی، شبکه Tor و رمزنگاری.</li>
+  <li>کار با داده‌ها در محیطی که ذخیره‌سازی محلی نشست به‌صورت پیش‌فرض محدود است.</li>
+  <li>آشنایی دانشجویان فناوری اطلاعات با طراحی امنیت‌محور در سیستم‌عامل‌ها.</li>
+  <li>بررسی تفاوت میان حریم خصوصی، امنیت دستگاه و ناشناس‌ماندن در شبکه.</li>
+ </ul>
+ <h3>مزایا</h3>
+ <div class="grid">
+  <div class="card"><h3>قابل‌حمل</h3><p>امکان اجرای محیط از رسانه جداشدنی روی سخت‌افزار سازگار.</p></div>
+  <div class="card"><h3>تنظیمات حریم خصوصی</h3><p>یکپارچگی Tor و محدودیت ارتباط مستقیم برنامه‌ها.</p></div>
+  <div class="card"><h3>نشست موقت</h3><p>کاهش ذخیره دائمی داده‌های نشست در حالت پیش‌فرض.</p></div>
+  <div class="card"><h3>جامعه و شفافیت</h3><p>تکیه بر نرم‌افزار آزاد و مستندات عمومی پروژه.</p></div>
+ </div>
+ <h3>محدودیت‌ها و خطرهای احتمالی</h3>
+ <ul>
+  <li>سرعت شبکه ممکن است پایین‌تر باشد و بعضی سرویس‌ها دسترسی از Tor را نپذیرند.</li>
+  <li>ناسازگاری احتمالی با برخی سخت‌افزارها یا درایورها وجود دارد.</li>
+  <li>اشتباه کاربر، مانند ورود به حساب هویتی یا ذخیره فایل در محل نامناسب، می‌تواند حریم خصوصی را کاهش دهد.</li>
+  <li>بدافزار یا دست‌کاری سخت‌افزار میزبان می‌تواند امنیت نشست را تهدید کند.</li>
+  <li>خاموش‌کردن نامناسب یا قطع برق ممکن است به از دست‌رفتن داده‌های ذخیره‌نشده منجر شود.</li>
+ </ul>
+ <div class="callout">Tails جایگزین پشتیبان‌گیری، به‌روزرسانی امنیتی، رمزنگاری درست یا رعایت اصول امنیت اطلاعات نیست. هیچ سیستم‌عاملی به‌تنهایی امنیت صددرصدی فراهم نمی‌کند.</div>
+ <div class="footer"><span>کاربردها و ارزیابی</span><span>صفحه ۱۰</span></div>
+</section>
+
+<section class="page">
+ <h2>۹. مقایسه Tails با چند سیستم‌عامل دیگر</h2>
+ <p>برای درک بهتر جایگاه Tails، آن را با چند گزینه شناخته‌شده مقایسه می‌کنیم. این مقایسه کلی است و ویژگی‌ها ممکن است با نسخه‌های مختلف تغییر کنند.</p>
+ <table>
+  <tbody><tr><th>سیستم‌عامل</th><th>هدف اصلی</th><th>شیوه معمول استفاده</th><th>تفاوت مهم با Tails</th></tr>
+  <tr><td>Tails</td><td>حریم خصوصی و کاهش ردپای محلی</td><td>اجرای زنده از رسانه قابل‌حمل</td><td>Tor و نشست موقت در طراحی پیش‌فرض آن نقش مرکزی دارند.</td></tr>
+  <tr><td>Ubuntu</td><td>کاربری عمومی و توسعه</td><td>نصب روی رایانه</td><td>برای استفاده روزمره و نگهداری دائمی داده‌ها مناسب‌تر است.</td></tr>
+  <tr><td>Debian</td><td>توزیع عمومی و پایدار لینوکس</td><td>نصب یا اجرای زنده</td><td>Tails بر پایه Debian ساخته شده، اما هدف تخصصی متفاوتی دارد.</td></tr>
+  <tr><td>Qubes OS</td><td>جداسازی محیط‌ها و برنامه‌ها</td><td>نصب روی رایانه سازگار</td><td>امنیت را عمدتاً با جداسازی مبتنی بر ماشین‌های مجازی دنبال می‌کند.</td></tr>
+ </tbody></table>
+ <h3>آیا Tails برای استفاده روزمره مناسب است؟</h3>
+ <p>این موضوع به نیاز کاربر بستگی دارد. Tails برای نشست‌های قابل‌حمل و حریم خصوصی طراحی شده است، نه اینکه لزوماً بهترین گزینه برای بازی، کارهای سنگین، مدیریت دائمی فایل‌ها یا استفاده روزمره عمومی باشد. کاربری که به محیط ثابت و سازگاری گسترده نیاز دارد، ممکن است یک توزیع عمومی لینوکس را ترجیح دهد.</p>
+ <h3>تفاوت VPN و Tor</h3>
+ <p>VPN معمولاً ترافیک را از طریق یک ارائه‌دهنده VPN عبور می‌دهد و اعتماد کاربر تا حدی به آن سرویس منتقل می‌شود. Tor ارتباط را از چند رله مستقل عبور می‌دهد و طراحی متفاوتی برای کاهش پیوند میان مبدأ و مقصد دارد. این دو فناوری یکسان نیستند و هیچ‌کدام به‌تنهایی ناشناس‌ماندن کامل را تضمین نمی‌کنند.</p>
+ <div class="callout"><strong>جمع‌بندی مقایسه:</strong> انتخاب سیستم‌عامل باید بر اساس مدل تهدید، نیاز کاری، سازگاری سخت‌افزار و سطح دانش کاربر انجام شود؛ محبوبیت یا نام امنیتی یک سیستم‌عامل به‌تنهایی معیار کافی نیست.</div>
+ <div class="footer"><span>مقایسه سیستم‌عامل‌ها</span><span>صفحه ۱۱</span></div>
+</section>
+
+<section class="page">
+ <h2>۱۰. مفاهیم آزمایشگاهی و نکات قابل پرسش</h2>
+ <p>در درس آزمایشگاه سیستم‌عامل لینوکس، شناخت Tails می‌تواند به درک چند مفهوم پایه کمک کند. مهم‌ترین موضوعات آموزشی آن عبارت‌اند از:</p>
+ <ul>
+  <li><strong>Live USB:</strong> اجرای سیستم‌عامل از رسانه جداشدنی بدون نصب معمول روی دیسک داخلی.</li>
+  <li><strong>Boot:</strong> فرایند راه‌اندازی رایانه و بارگذاری سیستم‌عامل.</li>
+  <li><strong>Linux Distribution:</strong> مجموعه‌ای شامل هسته لینوکس، ابزارها، کتابخانه‌ها و نرم‌افزارها.</li>
+  <li><strong>RAM:</strong> حافظه اصلی و موقتی که داده‌های در حال استفاده را نگه می‌دارد.</li>
+  <li><strong>Encryption:</strong> تبدیل داده به شکل محافظت‌شده با استفاده از الگوریتم و کلید.</li>
+  <li><strong>Network Routing:</strong> تعیین مسیر عبور بسته‌های شبکه از مبدأ به مقصد.</li>
+  <li><strong>Privacy:</strong> کنترل و محدودکردن افشای اطلاعات شخصی.</li>
+ </ul>
+ <h3>چند نکته مهم برای پاسخ شفاهی</h3>
+ <div class="qa"><strong>اگر استاد پرسید Tails از چه توزیعی منشعب شده است؟</strong><p>پاسخ: Tails بر پایه Debian GNU/Linux ساخته شده است.</p></div>
+ <div class="qa"><strong>چرا به آن سیستم‌عامل زنده می‌گویند؟</strong><p>پاسخ: چون می‌تواند از رسانه‌ای مانند USB اجرا شود و برای استفاده معمول نیازی به نصب روی دیسک داخلی ندارد.</p></div>
+ <div class="qa"><strong>وظیفه Tor در Tails چیست؟</strong><p>پاسخ: عبور دادن ارتباط اینترنتی از شبکه Tor برای دشوارترکردن پیوند میان نشانی IP کاربر و مقصد ارتباط.</p></div>
+ <div class="qa"><strong>آیا Tails همه اطلاعات را برای همیشه پاک می‌کند؟</strong><p>پاسخ: خیر. اطلاعات نشست به‌صورت پیش‌فرض موقت‌اند، اما داده‌های ذخیره‌شده در حافظه ماندگار یا رسانه‌های دیگر باقی می‌مانند.</p></div>
+ <div class="qa"><strong>آیا Tails ناشناس‌ماندن صددرصدی را تضمین می‌کند؟</strong><p>پاسخ: خیر. رفتار کاربر، وضعیت سخت‌افزار، ورود به حساب‌های شخصی و تحلیل ترافیک می‌توانند حریم خصوصی را تحت تأثیر قرار دهند.</p></div>
+ <div class="qa"><strong>Persistent Storage چیست؟</strong><p>پاسخ: فضای ذخیره‌سازی رمزنگاری‌شده‌ای است که امکان نگهداری انتخابی فایل‌ها و تنظیمات بین نشست‌ها را فراهم می‌کند.</p></div>
+ <div class="footer"><span>مرور مفاهیم و پرسش‌ها</span><span>صفحه ۱۲</span></div>
+</section>
+
+<section class="page">
+ <h2>۱۱. پرسش‌های تکمیلی و پاسخ کوتاه</h2>
+ <div class="qa"><strong>۱. آیا Tails یک نرم‌افزار است یا سیستم‌عامل؟</strong><p>یک سیستم‌عامل کامل مبتنی بر لینوکس است.</p></div>
+ <div class="qa"><strong>۲. آیا برای اجرای آن باید لینوکس نصب‌شده داشته باشیم؟</strong><p>خیر؛ Tails از رسانه راه‌انداز سازگار اجرا می‌شود و سیستم‌عامل میزبان لازم نیست لینوکس باشد.</p></div>
+ <div class="qa"><strong>۳. چرا برنامه‌های Tails اجازه اتصال مستقیم به اینترنت را ندارند؟</strong><p>برای کاهش احتمال افشای IP واقعی و جلوگیری از دورزدن مسیرهای محافظت‌شده شبکه.</p></div>
+ <div class="qa"><strong>۴. آیا Tor همان رمزنگاری کامل اینترنت است؟</strong><p>خیر. Tor مسیر ارتباط را در شبکه خود لایه‌بندی می‌کند؛ برای محافظت از محتوای ارتباط تا وب‌سایت، HTTPS نیز مهم است.</p></div>
+ <div class="qa"><strong>۵. آیا می‌توان فایل‌ها را بین دو بار اجرای Tails نگه داشت؟</strong><p>بله، با استفاده از Persistent Storage و ذخیره‌سازی انتخابی داده‌ها.</p></div>
+ <div class="qa"><strong>۶. آیا سرعت اینترنت در Tails همیشه مثل اتصال عادی است؟</strong><p>خیر. عبور ترافیک از چند رله ممکن است باعث کاهش سرعت و افزایش تأخیر شود.</p></div>
+ <div class="qa"><strong>۷. مهم‌ترین تفاوت Tails و Ubuntu چیست؟</strong><p>Ubuntu برای کاربری عمومی طراحی شده، اما Tails تمرکز ویژه‌ای بر حریم خصوصی، Tor و کاهش ردپای محلی دارد.</p></div>
+ <div class="qa"><strong>۸. آیا استفاده از Tails جایگزین رعایت امنیت فردی است؟</strong><p>خیر. به‌روزرسانی، گذرواژه مناسب، احتیاط در فایل‌ها و شناخت محدودیت‌ها همچنان ضروری‌اند.</p></div>
+ <h3>واژه‌نامه کوتاه</h3>
+ <table>
+  <tbody><tr><th>اصطلاح</th><th>معنی</th></tr>
+  <tr><td>Amnesic</td><td>فراموش‌کار؛ اشاره به موقتی‌بودن داده‌های نشست</td></tr>
+  <tr><td>Incognito</td><td>ناشناس یا با هویت پنهان</td></tr>
+  <tr><td>Live System</td><td>سیستم‌عامل قابل اجرا از رسانه زنده</td></tr>
+  <tr><td>Relay</td><td>گره یا واسطه عبور ترافیک در شبکه Tor</td></tr>
+  <tr><td>Persistent</td><td>ماندگار و قابل حفظ بین نشست‌ها</td></tr>
+  <tr><td>Encryption</td><td>رمزنگاری داده‌ها</td></tr>
+ </tbody></table>
+ <div class="footer"><span>پرسش‌های تکمیلی</span><span>صفحه ۱۳</span></div>
+</section>
+
+<section class="page">
+ <h2>۱۲. جمع‌بندی نهایی</h2>
+ <p>Tails یک توزیع لینوکس مبتنی بر Debian است که با هدف افزایش حریم خصوصی و کاهش ردپای محلی فعالیت کاربران طراحی شده است. اجرای زنده از رسانه قابل‌حمل، استفاده یکپارچه از شبکه Tor، محدودکردن ارتباط مستقیم برنامه‌ها و امکان استفاده از حافظه ماندگار رمزنگاری‌شده، از ویژگی‌های شناخته‌شده آن هستند.</p>
+ <p>مهم‌ترین نکته‌ای که باید درباره Tails به خاطر داشت این است که امنیت و حریم خصوصی حاصل یک ابزار منفرد نیست. Tails می‌تواند بخشی از یک راهکار حریم خصوصی باشد، اما رفتار کاربر، امنیت رایانه میزبان، به‌روزرسانی‌ها، برنامه‌های مورد استفاده و نوع تهدید همگی در نتیجه نهایی اثر دارند.</p>
+ <p>از دیدگاه درس آزمایشگاه سیستم‌عامل لینوکس، بررسی Tails نمونه مناسبی برای شناخت توزیع‌های لینوکس، سیستم‌عامل‌های زنده، فرایند راه‌اندازی، مدیریت حافظه، رمزنگاری و مفاهیم مسیریابی شبکه است. مطالعه آن نشان می‌دهد که یک توزیع لینوکس می‌تواند با تغییر طراحی و تنظیمات پیش‌فرض، برای هدفی تخصصی مانند حریم خصوصی ساخته شود.</p>
+ <div class="callout"><strong>نتیجه نهایی:</strong> Tails را می‌توان یک محیط لینوکسی قابل‌حمل و امنیت‌محور دانست که برای کاهش ردپای محلی و محافظت بهتر از حریم خصوصی آنلاین طراحی شده است؛ با این حال، نباید آن را تضمین‌کننده ناشناس‌ماندن کامل یا جایگزین همه اقدامات امنیتی دانست.</div>
+ <h2 style="margin-top:32px">منابع و مراجع</h2>
+ <ol class="sources">
+  <li>وب‌سایت رسمی پروژه Tails، بخش معرفی و اهداف: <a href="https://tails.net/about/">https://tails.net/about/</a></li>
+  <li>مستندات رسمی Tails، راهنمای شروع و استفاده: <a href="https://tails.net/doc/">https://tails.net/doc/</a></li>
+  <li>مستندات رسمی Tails، Persistent Storage: <a href="https://tails.net/doc/persistent_storage/">https://tails.net/doc/persistent_storage/</a></li>
+  <li>وب‌سایت رسمی پروژه Tor: <a href="https://www.torproject.org/">https://www.torproject.org/</a></li>
+  <li>راهنمای مرورگر Tor: <a href="https://tb-manual.torproject.org/">https://tb-manual.torproject.org/</a></li>
+  <li>وب‌سایت رسمی Debian: <a href="https://www.debian.org/">https://www.debian.org/</a></li>
+ </ol>
+ <p class="small">توضیح: برای اطلاعات فنی و جزئیات نسخه‌ها، مستندات رسمی پروژه‌ها مرجع اصلی هستند؛ زیرا ویژگی‌ها و نام برنامه‌ها ممکن است در نسخه‌های جدید تغییر کنند.</p>
+ <div class="footer"><span>جمع‌بندی و منابع</span><span>صفحه ۱۴</span></div>
+</section>
+
+<section class="page end">
+ <div class="bismillah">پایان تحقیق</div>
+ <h1>سپاس از توجه شما</h1>
+ <h2 style="border:0;color:#eee">آزمایشگاه سیستم‌عامل لینوکس</h2>
+ <p class="lead">موضوع: بررسی سیستم‌عامل Tails</p>
+ <div class="info">
+  <div><span class="gold">دانشجو:</span> محمد رجبی</div>
+  <div><span class="gold">استاد:</span> استاد میرزانژاد</div>
+ </div>
+ <p class="cover-foot" style="margin-top:55px">پایان</p>
+ <div class="footer"><span>محمد رجبی</span><span>صفحه ۱۵</span></div>
+</section>
+
+</body></html>

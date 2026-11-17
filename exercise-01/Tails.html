@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tails — تحقیق آزمایشگاه لینوکس</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800&display=swap');
+
+        :root {
+            --black: #0a0a0a;
+            --dark: #141414;
+            --card: #1c1c1c;
+            --yellow: #f5c400;
+            --yellow-soft: #ffdd44;
+            --yellow-dim: #c9a000;
+            --text: #e8e8e8;
+            --muted: #9a9a9a;
+            --border: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background: var(--black);
+            color: var(--text);
+            line-height: 1.9;
+            counter-reset: page;
+        }
+
+        /* ---------- Page System ---------- */
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            padding: 60px 70px 80px;
+            position: relative;
+            background: var(--black);
+            border-bottom: 1px solid var(--border);
+            page-break-after: always;
+        }
+
+        .page::after {
+            counter-increment: page;
+            content: counter(page);
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--yellow-dim);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* ---------- Cover ---------- */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(245, 196, 0, 0.08) 0%, transparent 60%),
+                var(--black);
+            border-bottom: 3px solid var(--yellow);
+        }
+
+        .bismillah {
+            font-size: 1.6rem;
+            color: var(--yellow);
+            margin-bottom: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 16px 40px;
+            border: 1px solid var(--yellow-dim);
+            border-radius: 8px;
+            background: rgba(245, 196, 0, 0.04);
+        }
+
+        .cover-icon {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 30px;
+            border: 3px solid var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            background: rgba(245, 196, 0, 0.06);
+        }
+
+        .cover-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--yellow);
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .cover-subtitle {
+            font-size: 1.15rem;
+            color: var(--muted);
+            margin-bottom: 50px;
+            max-width: 650px;
+        }
+
+        .cover-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 40px;
+            margin-top: 20px;
+            text-align: right;
+            padding: 30px 45px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--card);
+            min-width: 480px;
+        }
+
+        .cover-meta .label {
+            color: var(--yellow-dim);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .cover-meta .value {
+            color: var(--text);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* ---------- Headings ---------- */
+        h2 {
+            font-size: 1.9rem;
+            color: var(--yellow);
+            font-weight: 800;
+            margin-bottom: 28px;
+            padding-bottom: 14px;
+            border-bottom: 3px solid var(--yellow-dim);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        h2 .num {
+            background: var(--yellow);
+            color: var(--black);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        h3 {
+            color: var(--yellow-soft);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 26px 0 12px;
+        }
+
+        p {
+            margin-bottom: 14px;
+            text-align: justify;
+            color: #d0d0d0;
+        }
+
+        /* ---------- Cards & Boxes ---------- */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin: 18px 0;
+            border-right: 4px solid var(--yellow);
+        }
+
+        .card-yellow {
+            background: rgba(245, 196, 0, 0.05);
+            border: 1px solid rgba(245, 196, 0, 0.2);
+            border-right: 4px solid var(--yellow);
+        }
+
+        .highlight {
+            color: var(--yellow-soft);
+            font-weight: 700;
+        }
+
+        /* ---------- Lists ---------- */
+        ul, ol {
+            margin: 10px 25px 18px 0;
+            color: #d0d0d0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-right: 8px;
+        }
+
+        li::marker {
+            color: var(--yellow);
+        }
+
+        /* ---------- Table ---------- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            background: var(--card);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: var(--yellow);
+            color: var(--black);
+            padding: 14px 16px;
+            text-align: right;
+            font-weight: 700;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: #ccc;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* ---------- Images ---------- */
+        .img-box {
+            margin: 22px 0;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--dark);
+            text-align: center;
+        }
+
+        .img-box img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .img-box .caption {
+            padding: 10px 16px;
+            font-size: 0.82rem;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+            background: var(--dark);
+        }
+
+        .img-placeholder {
+            padding: 60px 20px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .img-placeholder .icon {
+            font-size: 2.5rem;
+            opacity: 0.4;
+        }
+
+        /* ---------- TOC ---------- */
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            background: var(--card);
+            border-radius: 10px;
+            border-right: 3px solid transparent;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .toc-item:hover {
+            border-right-color: var(--yellow);
+            background: #222;
+        }
+
+        .toc-item .toc-num {
+            background: var(--yellow);
+            color: var(--black);
+            min-width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-left: 14px;
+        }
+
+        .toc-item .toc-title {
+            flex: 1;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* ---------- End Page ---------- */
+        .end-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 100%, rgba(245, 196, 0, 0.08) 0%, transparent 60%);
+        }
+
+        .end-page .end-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+        }
+
+        .end-page h2 {
+            border: none;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .end-page p {
+            text-align: center;
+            color: var(--muted);
+            max-width: 600px;
+        }
+
+        .end-divider {
+            width: 120px;
+            height: 3px;
+            background: var(--yellow);
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 768px) {
+            .page {
+                padding: 35px 22px 70px;
+            }
+            .cover-title {
+                font-size: 1.9rem;
+            }
+            .cover-meta {
+                grid-template-columns: 1fr;
+                min-width: unset;
+                width: 100%;
+            }
+            h2 {
+                font-size: 1.45rem;
+            }
+            table {
+                font-size: 0.82rem;
+            }
+            th, td {
+                padding: 9px 10px;
+            }
+        }
+
+        @media print {
+            .page {
+                border-bottom: none;
+                page-break-after: always;
+            }
+            body {
+                background: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================= صفحه ۱: جلد ================= -->
+<section class="page cover">
+    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+    <div class="cover-icon">🦊</div>
+
+    <h1 class="cover-title">Tails</h1>
+    <div class="cover-subtitle">
+        سیستم‌عامل زنده، ناشناس و فراموش‌کار<br>
+        The Amnesic Incognito Live System
+    </div>
+
+    <div class="cover-meta">
+        <div>
+            <span class="label">نام دانشجو</span>
+            <span class="value">محمد رجبی</span>
+        </div>
+        <div>
+            <span class="label">استاد درس</span>
+            <span class="value">استاد میرزانژاد</span>
+        </div>
+        <div>
+            <span class="label">نام درس</span>
+            <span class="value">آزمایشگاه سیستم‌عامل لینوکس</span>
+        </div>
+        <div>
+            <span class="label">موضوع تحقیق</span>
+            <span class="value">بررسی جامع سیستم‌عامل Tails</span>
+        </div>
+    </div>
+
+  
+</section>
+
+
+<!-- ================= صفحه ۲: فهرست ================= -->
+<section class="page">
+    <h2><span class="num">۰</span> فهرست مطالب</h2>
+
+    <a class="toc-item" href="#s1"><span class="toc-num">۱</span><span class="toc-title">Tails چیست؟ تعریف و ماهیت</span></a>
+    <a class="toc-item" href="#s2"><span class="toc-num">۲</span><span class="toc-title">تاریخچه و پیشینه پروژه</span></a>
+    <a class="toc-item" href="#s3"><span class="toc-num">۳</span><span class="toc-title">ویژگی‌های کلیدی و نرم‌افزارهای همراه</span></a>
+    <a class="toc-item" href="#s4"><span class="toc-num">۴</span><span class="toc-title">سازوکارهای امنیتی و حفظ حریم خصوصی</span></a>
+    <a class="toc-item" href="#s5"><span class="toc-num">۵</span><span class="toc-title">حافظه پایدار رمزنگاری‌شده</span></a>
+    <a class="toc-item" href="#s6"><span class="toc-num">۶</span><span class="toc-title">مقایسه Tails با Whonix و Qubes OS</span></a>
+    <a class="toc-item" href="#s7"><span class="toc-num">۷</span><span class="toc-title">موارد استفاده و کاربران هدف</span></a>
+    <a class="toc-item" href="#s8"><span class="toc-num">۸</span><span class="toc-title">محدودیت‌ها و چالش‌ها</span></a>
+    <a class="toc-item" href="#s9"><span class="toc-num">۹</span><span class="toc-title">نصب و راه‌اندازی</span></a>
+    <a class="toc-item" href="#s10"><span class="toc-num">۱۰</span><span class="toc-title">جمع‌بندی</span></a>
+    <a class="toc-item" href="#refs"><span class="toc-num">★</span><span class="toc-title">منابع</span></a>
+</section>
+
+
+<!-- ================= صفحه ۳: بخش ۱ ================= -->
+<section class="page" id="s1">
+    <h2><span class="num">۱</span> Tails چیست؟ تعریف و ماهیت</h2>
+
+    <div class="card card-yellow">
+        <p>
+            <span class="highlight">Tails</span> که مخفف <strong>The Amnesic Incognito Live System</strong> است،
+            یک سیستم‌عامل کامل و قابل حمل است که هدف اصلی آن <span class="highlight">حفظ حریم خصوصی و ناشناسی</span>
+            کاربر در فضای آنلاین و کمک به دور زدن سانسور است. این سیستم‌عامل بر پایه
+            <strong>دبیان گنو/لینوکس</strong> ساخته شده و به‌صورت زنده (Live) از روی
+            <strong>فلش USB، دی‌وی‌دی یا کارت SD</strong> اجرا می‌شود، بدون آنکه نیازی به نصب روی
+            هارد دیسک کامپیوتر داشته باشد[reference:1].
+        </p>
+    </div>
+
+    <h3>«فراموش‌کار» بودن به چه معناست؟</h3>
+    <p>
+        نام «Amnesic» (فراموش‌کار) به این واقعیت اشاره دارد که Tails تماماً در حافظه
+        <strong>RAM</strong> اجرا می‌شود و پس از خاموش شدن سیستم، <span class="highlight">هیچ ردی</span>
+        از فعالیت‌ها، فایل‌ها یا تاریخچه مرور روی کامپیوتر میزبان باقی نمی‌گذارد[reference:2].
+        به بیان دقیق‌تر، Tails روی هارد دیسک کامپیوتر اصلی نمی‌نویسد و حافظه موقت آن
+        هنگام خاموش شدن به‌طور خودکار پاک می‌شود[reference:3].
+    </p>
+
+    <h3>«ناشناس» بودن چگونه تأمین می‌شود؟</h3>
+    <p>
+        تمام اتصالات شبکه در Tails به‌صورت <span class="highlight">اجباری از شبکه Tor</span>
+        عبور می‌کنند. به عبارت دیگر، هیچ برنامه‌ای در Tails نمی‌تواند به‌طور مستقیم و بدون
+        Tor به اینترنت متصل شود؛ اتصالات غیرناشناس مسدود می‌شوند[reference:4].
+        این طراحی تضمین می‌کند که آدرس IP واقعی کاربر برای مقاصد مقصد قابل مشاهده نباشد.
+    </p>
+
+    <div class="img-box">
+<svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#0a0a0a;">
+  <defs>
+    <marker id="arrowYellow1" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#f5c400"/>
+    </marker>
+    <marker id="arrowGold1" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#c9a000"/>
+    </marker>
+  </defs>
+
+  <!-- عنوان -->
+  <text x="350" y="35" fill="#f5c400" font-family="Tahoma,sans-serif" font-size="18" font-weight="bold" text-anchor="middle">مسیر ترافیک در Tails از طریق شبکه Tor</text>
+
+  <!-- کاربر -->
+  <g transform="translate(70, 200)">
+    <circle r="45" fill="#1c1c1c" stroke="#f5c400" stroke-width="3"/>
+    <circle cx="0" cy="-12" r="13" fill="none" stroke="#f5c400" stroke-width="3"/>
+    <path d="M -18 18 Q 0 -8 18 18" fill="none" stroke="#f5c400" stroke-width="3" stroke-linecap="round"/>
+    <text y="72" fill="#e8e8e8" font-family="Tahoma,sans-serif" font-size="15" font-weight="bold" text-anchor="middle">شما</text>
+    <text y="92" fill="#9a9a9a" font-family="Tahoma,sans-serif" font-size="11" text-anchor="middle">IP واقعی: 192.168.1.5</text>
+  </g>
+
+  <line x1="125" y1="200" x2="185" y2="200" stroke="#f5c400" stroke-width="3" marker-end="url(#arrowYellow1)"/>
+
+  <!-- شبکه Tor -->
+  <rect x="200" y="100" width="300" height="200" rx="15" fill="rgba(245,196,0,0.05)" stroke="#f5c400" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="350" y="128" fill="#f5c400" font-family="Tahoma,sans-serif" font-size="15" font-weight="bold" text-anchor="middle">شبکه Tor</text>
+
+  <!-- گره ورودی -->
+  <circle cx="245" cy="190" r="34" fill="#1c1c1c" stroke="#ffdd44" stroke-width="3"/>
+  <text x="245" y="188" fill="#ffdd44" font-family="Tahoma,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">ورودی</text>
+  <text x="245" y="205" fill="#ffdd44" font-family="Tahoma,sans-serif" font-size="10" text-anchor="middle">Entry</text>
+
+  <!-- گره میانی -->
+  <circle cx="350" cy="190" r="34" fill="#1c1c1c" stroke="#ffdd44" stroke-width="3"/>
+  <text x="350" y="188" fill="#ffdd44" font-family="Tahoma,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">میانی</text>
+  <text x="350" y="205" fill="#ffdd44" font-family="Tahoma,sans-serif" font-size="10" text-anchor="middle">Middle</text>
+
+  <!-- گره خروجی -->
+  <circle cx="455" cy="190" r="34" fill="#1c1c1c" stroke="#ffdd44" stroke-width="3"/>
+  <text x="455" y="188" fill="#ffdd44" font-family="Tahoma,sans-serif" font-size="13" font-weight="bold" text-anchor="middle">خروجی</text>
+  <text x="455" y="205" fill="#ffdd44" font-family="Tahoma,sans-serif" font-size="10" text-anchor="middle">Exit</text>
+
+  <!-- فلش‌های بین گره‌ها -->
+  <line x1="279" y1="190" x2="316" y2="190" stroke="#c9a000" stroke-width="2.5" marker-end="url(#arrowGold1)"/>
+  <line x1="384" y1="190" x2="421" y2="190" stroke="#c9a000" stroke-width="2.5" marker-end="url(#arrowGold1)"/>
+
+  <!-- توضیح گره‌ها -->
+  <text x="245" y="250" fill="#9a9a9a" font-family="Tahoma,sans-serif" font-size="10" text-anchor="middle">IP شما را می‌بیند</text>
+  <text x="350" y="250" fill="#9a9a9a" font-family="Tahoma,sans-serif" font-size="10" text-anchor="middle">هویت را نمی‌داند</text>
+  <text x="455" y="250" fill="#9a9a9a" font-family="Tahoma,sans-serif" font-size="10" text-anchor="middle">IP شما را نمی‌بیند</text>
+
+  <text x="350" y="280" fill="#f5c400" font-family="Tahoma,sans-serif" font-size="12" font-weight="bold" text-anchor="middle">سه لایه رمزنگاری مستقل</text>
+
+  <line x1="515" y1="200" x2="575" y2="200" stroke="#f5c400" stroke-width="3" marker-end="url(#arrowYellow1)"/>
+
+  <!-- وب‌سایت -->
+  <g transform="translate(630, 200)">
+    <circle r="45" fill="#1c1c1c" stroke="#f5c400" stroke-width="3"/>
+    <circle r="24" fill="none" stroke="#f5c400" stroke-width="2.5"/>
+    <ellipse rx="11" ry="24" fill="none" stroke="#f5c400" stroke-width="2.5"/>
+    <line x1="-24" y1="0" x2="24" y2="0" stroke="#f5c400" stroke-width="2.5"/>
+    <line x1="-22" y1="-9" x2="22" y2="-9" stroke="#f5c400" stroke-width="2"/>
+    <line x1="-22" y1="9" x2="22" y2="9" stroke="#f5c400" stroke-width="2"/>
+    <text y="72" fill="#e8e8e8" font-family="Tahoma,sans-serif" font-size="15" font-weight="bold" text-anchor="middle">وب‌سایت</text>
+    <text y="92" fill="#9a9a9a" font-family="Tahoma,sans-serif" font-size="11" text-anchor="middle">IP: 185.x.x.x</text>
+  </g>
+
+  <text x="350" y="355" fill="#4caf50" font-family="Tahoma,sans-serif" font-size="14" font-weight="bold" text-anchor="middle">✓ وب‌سایت هرگز IP واقعی شما را نمی‌بیند</text>
+</svg>
+<div class="caption">مسیر ترافیک Tails از طریق سه لایه شبکه Tor — وب‌سایت فقط IP خروجی را می‌بیند</div>
+</div>
+
+    <div class="card">
+        <strong>📌 نکته کلیدی:</strong> Tails یک سیستم‌عامل «زنده» است؛ یعنی هر بار که آن را
+        بوت می‌کنید، یک محیط کاملاً تازه و پاک در اختیار دارید. این ویژگی آن را از
+        سیستم‌عامل‌های معمول که حالت‌های قبلی را حفظ می‌کنند، متمایز می‌سازد.
+    </div>
+</section>
+
+
+<!-- ================= صفحه ۴: بخش ۲ ================= -->
+<section class="page" id="s2">
+    <h2><span class="num">۲</span> تاریخچه و پیشینه پروژه</h2>
+
+    <p>
+        Tails نخستین بار در <span class="highlight">۲۳ ژوئن ۲۰۰۹</span> منتشر شد و به‌عنوان
+        نسخه‌ای تکامل‌یافته از پروژه <strong>Incognito</strong> (یک توزیع لینوکس مبتنی بر Gentoo)
+        توسعه یافت. بنیان‌گذار اصلی آن فردی با نام مستعار <strong>«anonym»</strong>
+        بود که پس از کناره‌گیری نویسنده اولیه Incognito (پت دابل) در سال ۲۰۰۷،
+        نگهداری پروژه را بر عهده گرفت.
+    </p>
+
+    <h3>نقاط عطف مهم</h3>
+    <table>
+        <tr>
+            <th>زمان</th>
+            <th>رویداد</th>
+        </tr>
+        <tr>
+            <td>۲۰۰۹</td>
+            <td>انتشار عمومی اولین نسخه (amnesia 0.2) و آغاز پروژه Tails</td>
+        </tr>
+        <tr>
+            <td>۲۰۱۲</td>
+            <td>نسخه 0.11 — معرفی «حافظه پایدار» (Persistence) به‌صورت اختیاری</td>
+        </tr>
+        <tr>
+            <td>۲۰۱۴</td>
+            <td>نسخه 1.0 — نقطه عطف بلوغ پروژه</td>
+        </tr>
+        <tr>
+            <td>۲۰۲۴</td>
+            <td>ادغام رسمی Tails با پروژه Tor برای تقویت همکاری و کاهش هزینه‌های نگهداری</td>
+        </tr>
+    </table>
+
+    <div class="card card-yellow">
+        <strong>🔗 ارتباط با پروژه Tor:</strong> Tails از ابتدا مورد حمایت مالی و فنی
+        پروژه Tor بود و در سال ۲۰۲۴ به‌طور رسمی با آن ادغام شد. امروزه Tails
+        بخشی از اکوسیستم Tor محسوب می‌شود و توسعه‌دهندگان آن با تیم Tor
+        همکاری نزدیک دارند[reference:7].
+    </div>
+
+    <p>
+        Tails توسط یک <span class="highlight">تیم بین‌المللی از توسعه‌دهندگان ناشناس</span>
+        نگهداری می‌شود و بخشی از بودجه آن از طریق کمک‌های مردمی و بنیادهایی مانند
+        <strong>Electronic Frontier Foundation</strong> تأمین می‌گردد[reference:9].
+        این ساختار غیرمتمرکز و ناشناس، خود بخشی از فلسفه امنیتی پروژه است.
+    </p>
+</section>
+
+
+<!-- ================= صفحه ۵: بخش ۳ ================= -->
+<section class="page" id="s3">
+    <h2><span class="num">۳</span> ویژگی‌های کلیدی و نرم‌افزارهای همراه</h2>
+
+    <p>
+        Tails مجموعه‌ای از ابزارهای آماده و از پیش پیکربندی‌شده را در اختیار کاربر
+        قرار می‌دهد که همه آن‌ها با تنظیمات امن پیش‌فرض (Safe Defaults) همراه هستند.
+        نسخه فعلی آن بر پایه <strong>Debian 13 (Trixie)</strong> و محیط دسکتاپ
+        <strong>GNOME</strong> بنا شده است[reference:11].
+    </p>
+
+    <h3>🌐 شبکه و مرور ناشناس</h3>
+    <ul>
+        <li><strong>Tor Browser:</strong> مرورگر وب مبتنی بر Firefox که برای محافظت از ناشناسی اصلاح شده و افزونه‌های NoScript و uBlock Origin را در خود دارد[reference:12].</li>
+        <li><strong>Onion Circuits:</strong> رابط گرافیکی برای مشاهده و درک مدارهای Tor[reference:13].</li>
+        <li><strong>OnionShare:</strong> اشتراک‌گذاری فایل به‌صورت ناشناس از طریق شبکه Onion[reference:14].</li>
+        <li><strong>Pidgin با OTR:</strong> پیام‌رسان فوری با قابلیت گفتگوی «بدون ثبت» (Off-the-Record)[reference:15].</li>
+    </ul>
+
+    <h3>🔐 رمزنگاری و حریم خصوصی</h3>
+    <ul>
+        <li><strong>GnuPG و Kleopatra:</strong> رمزنگاری و امضای دیجیتال ایمیل و داده‌ها[reference:16].</li>
+        <li><strong>Thunderbird با OpenPGP:</strong> ارسال ایمیل رمزنگاری‌شده[reference:17].</li>
+        <li><strong>Metadata Cleaner و mat2:</strong> حذف متاداده (فراداده) از فایل‌ها برای جلوگیری از افشای ناخواسته اطلاعات[reference:18].</li>
+        <li><strong>KeePassXC / GNOME Secrets:</strong> مدیریت رمزهای عبور[reference:19].</li>
+        <li><strong>پشتیبانی از LUKS و VeraCrypt:</strong> باز کردن و مدیریت درایوهای رمزنگاری‌شده[reference:20].</li>
+    </ul>
+
+    <h3>🛠️ ابزارهای دیگر</h3>
+    <ul>
+        <li><strong>Tesseract OCR:</strong> تبدیل تصاویر حاوی متن به سند متنی[reference:21].</li>
+        <li><strong>Electrum:</strong> کیف پول بیت‌کوین با تمرکز بر حریم خصوصی[reference:22].</li>
+        <li><strong>صفحه‌کلید GNOME:</strong> محافظت در برابر کی‌لاگرهای سخت‌افزاری[reference:23].</li>
+        <li><strong>Wget و curl:</strong> دانلود و انتقال داده از خط فرمان[reference:24].</li>
+    </ul>
+
+    <div class="card">
+        <strong>💡 قابلیت نصب نرم‌افزار اضافی:</strong> در Tails می‌توانید هر نرم‌افزاری را
+        که در مخازن Debian موجود است نصب کنید. همچنین با استفاده از ویژگی
+        «Additional Software» در حافظه پایدار، می‌توانید نصب خودکار نرم‌افزارها را
+        هنگام بوت تنظیم کنید[reference:25].
+    </div>
+</section>
+
+
+<!-- ================= صفحه ۶: بخش ۴ ================= -->
+<section class="page" id="s4">
+    <h2><span class="num">۴</span> سازوکارهای امنیتی و حفظ حریم خصوصی</h2>
+
+    <h3>🔒 اجبار مسیر Tor</h3>
+    <p>
+        مهم‌ترین لایه امنیتی Tails، <span class="highlight">اجبار عبور تمام ترافیک از Tor</span>
+        است. هیچ برنامه‌ای — حتی برنامه‌هایی که کاربر نصب می‌کند — نمی‌تواند
+        اتصال مستقیم به اینترنت برقرار کند. این سیاست در سطح سیستم‌عامل اعمال می‌شود
+        و به‌اصطلاح «fail-closed» است: اگر Tor در دسترس نباشد، اتصال برقرار نمی‌شود
+        و ترافیک لو نمی‌رود[reference:26].
+    </p>
+
+    <h3>🧹 پاک‌سازی حافظه در خاموشی</h3>
+    <p>
+        Tails به‌گونه‌ای طراحی شده که با خاموش شدن سیستم، <span class="highlight">محتوای حافظه RAM پاک شود</span>.
+        این اقدام نه‌تنها از بازیابی داده‌ها پس از خاموشی جلوگیری می‌کند، بلکه
+        به‌عنوان دفاعی در برابر <strong>حملات Cold Boot</strong> و
+        <strong>تحلیل حافظه</strong> (Memory Forensics) عمل می‌کند[reference:28].
+    </p>
+
+    <h3>🛡️ جداسازی برنامه‌ها با AppArmor</h3>
+    <p>
+        Tails از <strong>AppArmor</strong> برای محدودسازی دسترسی برنامه‌ها به منابع سیستم
+        استفاده می‌کند. این جداسازی (Application Isolation) باعث می‌شود که در صورت
+        آلوده شدن یک برنامه، آسیب به سایر بخش‌های سیستم محدود بماند[reference:29].
+    </p>
+
+    <h3>👻 دفاع در برابر حملات Evil Maid</h3>
+    <div class="card card-yellow">
+        <p>
+            <strong>حمله Evil Maid</strong> به وضعیتی اشاره دارد که مهاجم به‌صورت فیزیکی
+            به دستگاه دسترسی پیدا کرده و بوت‌لودر یا سیستم‌عامل را دستکاری می‌کند.
+            <span class="highlight">هیچ سیستم‌عاملی — از جمله Tails — نمی‌تواند در برابر
+            دستکاری سخت‌افزاری یا فریم‌ور مخرب محافظت کامل ارائه دهد</span>[reference:30].
+            با این حال، ماهیت زنده و فراموش‌کار Tails ریسک را کاهش می‌دهد، زیرا
+            پس از هر بوت، محیط از نو ساخته می‌شود و تغییرات پایدار به‌سختی
+            می‌توانند نفوذ کنند. بهترین دفاع، <strong>عدم رها کردن دستگاه بدون مراقبت</strong>
+            و استفاده از ابزارهای تشخیص دستکاری است[reference:31].
+        </p>
+    </div>
+
+    <h3>🖥️ صفحه‌کلید مجازی و مقابله با کی‌لاگر</h3>
+    <p>
+        Tails یک صفحه‌کلید روی صفحه (On-Screen Keyboard) ارائه می‌دهد که می‌تواند
+        برای وارد کردن رمزهای عبور حساس استفاده شود. این ویژگی خطر
+        <strong>کی‌لاگرهای سخت‌افزاری</strong> را کاهش می‌دهد، هرچند آن را به‌طور کامل
+        از بین نمی‌برد[reference:32].
+    </p>
+</section>
+
+
+<!-- ================= صفحه ۷: بخش ۵ ================= -->
+<section class="page" id="s5">
+    <h2><span class="num">۵</span> حافظه پایدار رمزنگاری‌شده (Persistent Storage)</h2>
+
+    <p>
+        به‌طور پیش‌فرض، همه چیز در Tails موقتی است و با خاموش شدن از بین می‌رود.
+        اما Tails گزینه‌ای اختیاری به نام <span class="highlight">حافظه پایدار</span>
+        ارائه می‌دهد که به کاربر اجازه می‌دهد برخی فایل‌ها و تنظیمات را بین
+        جلسات حفظ کند[reference:33].
+    </p>
+
+    <h3>چه چیزهایی را می‌توان ذخیره کرد؟</h3>
+    <ul>
+        <li>اسناد و مدارک شخصی</li>
+        <li>رمزهای عبور Wi-Fi</li>
+        <li>نشانک‌های مرورگر</li>
+        <li>کلیدهای GnuPG</li>
+        <li>تنظیمات نرم‌افزارهای اضافی</li>
+    </ul>
+
+    <h3>مشخصات فنی رمزنگاری</h3>
+    <div class="card">
+        <p>
+            حافظه پایدار یک <strong>پارتیشن رمزنگاری‌شده</strong> است که با یک
+            <strong>عبارت عبور (Passphrase)</strong> محافظت می‌شود و کل فضای آزاد
+            فلش USB را اشغال می‌کند[reference:34]. رمزنگاری آن با استفاده از
+            <span class="highlight">LUKS و dm-crypt</span> انجام می‌شود که استاندارد
+            رمزنگاری دیسک در لینوکس محسوب می‌شود و پارامترهای پیش‌فرض آن
+            بسیار امن تلقی می‌گردند[reference:35].
+        </p>
+    </div>
+
+    <h3>⚠️ محدودیت‌ها و هشدارها</h3>
+    <ul>
+        <li><strong>پنهان نیست:</strong> مهاجمی که فلش را در اختیار داشته باشد می‌تواند وجود حافظه پایدار را تشخیص دهد[reference:36].</li>
+        <li><strong>عبارت عبور ضعیف، نقطه ضعف اصلی است:</strong> توصیه می‌شود از عبارتی متشکل از ۵ تا ۷ کلمه تصادفی استفاده شود[reference:37].</li>
+        <li><strong>خطر اجبار:</strong> اگر کاربر مجبور یا فریب داده شود تا عبارت عبور را افشا کند، محتویات در معرض خطر قرار می‌گیرد[reference:38].</li>
+        <li><strong>هشدار خرابی در Tails 6.0:</strong> نسخه ۶.۰ هشدارهایی برای خطاهای خواندن/نوشتن حافظه پایدار اضافه کرده تا کاربر پیش از از دست رفتن داده‌ها، پشتیبان‌گیری کند[reference:39].</li>
+    </ul>
+
+    <div class="card card-yellow">
+        <strong>📌 توصیه عملی:</strong> حافظه پایدار را فقط در صورت نیاز فعال کنید.
+        Tails همیشه این امکان را می‌دهد که بدون فعال‌سازی حافظه پایدار بوت شود؛
+        این کار سطح حمله را کاهش می‌دهد.
+    </div>
+</section>
+
+
+<!-- ================= صفحه ۸: بخش ۶ ================= -->
+<section class="page" id="s6">
+    <h2><span class="num">۶</span> مقایسه Tails با Whonix و Qubes OS</h2>
+
+    <p>
+        Tails تنها سیستم‌عامل با تمرکز بر ناشناسی نیست. دو گزینه شناخته‌شده دیگر
+        <strong>Whonix</strong> و <strong>Qubes OS</strong> هستند. هر یک رویکرد
+        معماری متفاوتی دارند و برای پروفایل‌های تهدید مختلف مناسب‌اند[reference:41].
+    </p>
+
+    <table>
+        <tr>
+            <th>معیار</th>
+            <th>Tails</th>
+            <th>Whonix</th>
+            <th>Qubes OS</th>
+        </tr>
+        <tr>
+            <td>نوع</td>
+            <td>Live USB / DVD</td>
+            <td>ماشین مجازی (Gateway + Workstation)</td>
+            <td>سیستم‌عامل میزبان با مجازی‌سازی Xen</td>
+        </tr>
+        <tr>
+            <td>حداقل RAM</td>
+            <td>۲ گیگابایت</td>
+            <td>۴ گیگابایت</td>
+            <td>۱۶ گیگابایت (۳۲ توصیه‌شده)</td>
+        </tr>
+        <tr>
+            <td>ماندگاری داده</td>
+            <td>حافظه پایدار رمزنگاری‌شده (اختیاری)</td>
+            <td>VMهای پایدار</td>
+            <td>هر «Qube» جداگانه پایدار</td>
+        </tr>
+        <tr>
+            <td>اجبار Tor</td>
+            <td>بله — در سطح سیستم‌عامل</td>
+            <td>بله — از طریق Gateway</td>
+            <td>از طریق Qubeهای شبکه اختصاصی</td>
+        </tr>
+        <tr>
+            <td>نقطه قوت</td>
+            <td>قابلیت حمل، سادگی، «بدون ردی»</td>
+            <td>جداسازی شبکه‌ای قوی</td>
+            <td>جداسازی سراسری برنامه‌ها</td>
+        </tr>
+    </table>
+
+    <h3>چه زمانی Tails انتخاب بهتری است؟</h3>
+    <div class="card card-yellow">
+        <p>
+            اگر نیاز اصلی شما <span class="highlight">قابلیت حمل، سادگی استفاده و
+            عدم برجای گذاشتن هیچ ردی روی کامپیوتر میزبان</span> است، Tails گزینه
+            برتر است. برای یک ژورنالیست که از کافه اینترنت یا کامپیوتر مشترک
+            استفاده می‌کند، Tails ساده‌ترین و مطمئن‌ترین راه‌حل است[reference:42].
+            در مقابل، Whonix و Qubes OS برای کاربران حرفه‌ای‌تر و با نیازهای
+            جداسازی پیشرفته‌تر طراحی شده‌اند[reference:43].
+        </p>
+    </div>
+
+    <p>
+        نکته مهم این است که <strong>هیچ‌کدام از این سیستم‌عامل‌ها «جادو» نیستند</strong>.
+        امنیت واقعی به رفتار کاربر (OpSec)، به‌روزرسانی منظم و رعایت اصول
+        عملیاتی بستگی دارد. Tails ابزاری قدرتمند است، اما جایگزین هوشیاری
+        نیست[reference:44].
+    </p>
+</section>
+
+
+<!-- ================= صفحه ۹: بخش ۷ ================= -->
+<section class="page" id="s7">
+    <h2><span class="num">۷</span> موارد استفاده و کاربران هدف</h2>
+
+    <p>
+        Tails عمدتاً برای افرادی طراحی شده که به <span class="highlight">حفاظت از هویت
+        و فعالیت آنلاین خود</span> نیاز دارند. کاربران اصلی آن عبارت‌اند از:
+    </p>
+
+    <h3>👤 روزنامه‌نگاران و خبرنگاران تحقیقی</h3>
+    <p>
+        Tails ابزار استاندارد بسیاری از روزنامه‌نگاران در سراسر جهان است و
+        بنیاد آزادی مطبوعات (Freedom of the Press Foundation) آن را توصیه می‌کند.
+        خبرنگاران می‌توانند از کامپیوترهای مشترک یا در شرایط پرخطر استفاده کنند
+        بدون نگرانی از باقی ماندن ردپای دیجیتال[reference:45].
+    </p>
+
+    <h3>✊ فعالان مدنی و سیاسی</h3>
+    <p>
+        در مصاحبه‌ای با یکی از کاربران Tails (رابین، فعال ضد هسته‌ای در فرانسه)
+        آمده است که او پنج سال است از Tails استفاده می‌کند و تمام ارتباطات
+        مرتبط با فعالیت مدنی خود را صرفاً از طریق Tails انجام می‌دهد.
+        او می‌گوید: «حتی اگر روزی پلیس به ما حمله کند، نیازی به پاک‌سازی
+        منظم کامپیوترها نداریم، چون فراموش‌کار هستند»[reference:46][reference:47].
+    </p>
+
+    <h3>🔔 افشاگران و منابع خبری</h3>
+    <p>
+        افرادی که اطلاعات حساس را با خبرنگاران به اشتراک می‌گذارند، می‌توانند
+        از Tails برای ارتباط امن و ناشناس استفاده کنند. OnionShare و
+        Pidgin با OTR ابزارهای مناسبی برای این منظور هستند[reference:48].
+    </p>
+
+    <h3>🌍 travelers و افراد بدون کامپیوتر شخصی</h3>
+    <p>
+        Tails برای افرادی که سفر زیادی می‌کنند یا کامپیوتر شخصی ندارند
+        بسیار مناسب است. کافی است یک فلش USB همراه داشته باشند و روی
+        هر کامپیوتری که بوت USB را پشتیبانی می‌کند، محیط امن خود را
+        اجرا کنند[reference:49].
+    </p>
+
+    <div class="card">
+        <strong>🎯 اصل کلیدی:</strong> Tails به‌طور خاص برای «کارهای حساس» طراحی شده است.
+        بسیاری از کاربران آن را نه به‌عنوان سیستم‌عامل روزمره، بلکه برای
+        فعالیت‌های خاص (ارتباط با منابع، بررسی ایمیل‌های حساس، انتشار اسناد)
+        به کار می‌برند و زندگی روزمره خود را روی سیستم‌عامل دیگری ادامه می‌دهند[reference:50].
+    </div>
+</section>
+
+
+<!-- ================= صفحه ۱۰: بخش ۸ ================= -->
+<section class="page" id="s8">
+    <h2><span class="num">۸</span> محدودیت‌ها و چالش‌ها</h2>
+
+    <p>
+        با وجود طراحی امنیتی قوی، Tails محدودیت‌های عملی مهمی دارد که
+        کاربر باید از آن‌ها آگاه باشد.
+    </p>
+
+    <h3>🐢 سرعت پایین</h3>
+    <p>
+        عبور اجباری از Tor باعث می‌شود سرعت اینترنت به‌طور محسوسی
+        <span class="highlight">کندتر از اتصال مستقیم</span> باشد. بارگذاری
+        صفحات وب و دانلود فایل‌ها زمان بیشتری می‌برد[reference:51][reference:52].
+        این محدودیت ذاتی است و نمی‌توان آن را بدون نقض ناشناسی برطرف کرد.
+    </p>
+
+    <h3>💻 ناسازگاری سخت‌افزاری</h3>
+    <ul>
+        <li>روی پردازنده‌های <strong>ARM و PowerPC</strong> اجرا نمی‌شود (از جمله مک‌های Apple Silicon)[reference:53].</li>
+        <li>روی برخی کارت‌های گرافیک <strong>NVIDIA و AMD Radeon</strong> ممکن است مشکل داشته باشد[reference:54].</li>
+        <li>از Tails 3.0 به بعد، پردازنده‌های <strong>۳۲ بیتی</strong> پشتیبانی نمی‌شوند[reference:55].</li>
+        <li>با کمتر از ۳ گیگابایت RAM ممکن است ناپایداری یا کاهش عملکرد رخ دهد[reference:56].</li>
+    </ul>
+
+    <h3>🖥️ محدودیت مرورگر ناامن</h3>
+    <p>
+        Tails یک مرورگر «ناامن» (Unsafe Browser) نیز دارد که برای موارد خاص
+        (مانند ورود به پورتال هتل یا فرودگاه) طراحی شده، اما کارایی آن
+        محدود است و نباید برای مرور عادی استفاده شود[reference:57].
+    </p>
+
+    <h3>🔌 وابستگی به سخت‌افزار میزبان</h3>
+    <p>
+        اگرچه Tails روی کامپیوتر میزبان ردی باقی نمی‌گذارد، اما امنیت آن
+        تا حدی به سلامت سخت‌افزار و فریم‌ور کامپیوتر میزبان بستگی دارد.
+        یک سیستم‌عامل آلوده یا فریم‌ور مخرب می‌تواند حریم خصوصی را
+        به خطر بیندازد[reference:58].
+    </p>
+
+    <h3>🔄 نیاز به به‌روزرسانی منظم</h3>
+    <p>
+        برای حفظ امنیت، باید نسخه Tails را به‌طور منظم به‌روزرسانی کرد.
+        Tails مکانیزم ارتقای خودکار USB را فراهم کرده، اما کاربر باید
+        فعالانه آن را اجرا کند[reference:59].
+    </p>
+
+    <div class="card card-yellow">
+        <strong>⚠️ هشدار مهم:</strong> Tails «ضدگلوله» نیست. توسعه‌دهندگان آن
+        صریحاً هشدار می‌دهند که این سیستم‌عامل <span class="highlight">از شما در برابر
+        همه تهدیدها محافظت نمی‌کند</span>. امنیت یک فرآیند است، نه یک محصول؛
+        و رفتار کاربر (OpSec) مهم‌ترین عامل در حفظ ناشناسی است[reference:60].
+    </div>
+</section>
+
+
+<!-- ================= صفحه ۱۱: بخش ۹ ================= -->
+<section class="page" id="s9">
+    <h2><span class="num">۹</span> نصب و راه‌اندازی</h2>
+
+    <p>
+        نصب Tails روی یک فلش USB نسبتاً ساده است، اما نیازمند دقت و
+        رعایت نکات امنیتی است.
+    </p>
+
+    <h3>پیش‌نیازها</h3>
+    <ul>
+        <li>یک فلش USB با حداقل <strong>۸ گیگابایت</strong> ظرفیت (اختصاصی برای Tails)[reference:61].</li>
+        <li>یک کامپیوتر با قابلیت بوت از USB.</li>
+        <li>حداقل <strong>۲ گیگابایت RAM</strong> (۸ گیگابایت توصیه‌شده)[reference:62].</li>
+    </ul>
+
+    <h3>مراحل کلی نصب</h3>
+    <ol>
+        <li><strong>دانلود تصویر Tails:</strong> از وب‌سایت رسمی <code>tails.net</code> فایل ISO یا IMG را دریافت کنید[reference:63].</li>
+        <li><strong>راستی‌آزمایی امضا:</strong> فایل دانلودشده را با استفاده از امضای PGP توسعه‌دهندگان Tails بررسی کنید تا از سالم بودن آن مطمئن شوید.</li>
+        <li><strong>نوشتن روی USB:</strong> با استفاده از ابزارهایی مانند <code>dd</code> در لینوکس، Rufus در ویندوز یا BalenaEtcher، تصویر را روی فلش بنویسید. <span class="highlight">تمام داده‌های فلش پاک می‌شود</span>[reference:65].</li>
+        <li><strong>بوت از USB:</strong> کامپیوتر را ری‌استارت کرده و از منوی بوت، فلش USB را انتخاب کنید.</li>
+        <li><strong>تنظیمات اولیه:</strong> پس از بوت، می‌توانید در صورت نیاز حافظه پایدار را فعال و رمزگذاری کنید.</li>
+    </ol>
+
+  <div class="img-box">
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#0a0a0a;">
+  <text x="350" y="35" fill="#f5c400" font-family="Tahoma,sans-serif" font-size="18" font-weight="bold" text-anchor="middle">چهار مرحله نصب Tails روی فلش USB</text>
+
+  <!-- مرحله ۱: دانلود -->
+  <g transform="translate(100, 150)">
+    <circle r="50" fill="#1c1c1c" stroke="#f5c400" stroke-width="3"/>
+    <line x1="0" y1="-22" x2="0" y2="10" stroke="#f5c400" stroke-width="3" stroke-linecap="round"/>
+    <polygon points="-12,5 0,20 12,5" fill="#f5c400"/>
+    <line x1="-18" y1="25" x2="18" y2="25" stroke="#f5c400" stroke-width="3" stroke-linecap="round"/>
+    <text y="78" fill="#e8e8e8" font-family="Tahoma,sans-serif" font-size="14" font-weight="bold" text-anchor="middle">۱. دانلود</text>
+    <text y="96" fill="#9a9a9a" font-family="Tahoma,sans-serif" font-size="11" text-anchor="middle">ISO از tails.net</text>
+  </g>
+
+  <line x1="152" y1="150" x2="215" y2="150" stroke="#f5c400" stroke-width="2.5"/>
+  <polygon points="215,143 228,150 215,157" fill="#f5c400"/>
+
+  <!-- مرحله ۲: راستی‌آزمایی -->
+  <g transform="translate(267, 150)">
+    <circle r="50" fill="#1c1c1c" stroke="#f5c400" stroke-width="3"/>
+    <path d="M 0 -28 L 20 -20 L 20 2 Q 20 22 0 28 Q -20 22 -20 2 L -20 -20 Z" fill="none" stroke="#f5c400" stroke-width="2.5"/>
+    <polyline points="-10,0 -2,9 12,-9" fill="none" stroke="#f5c400" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text y="78" fill="#e8e8e8" font-family="Tahoma,sans-serif" font-size="14" font-weight="bold" text-anchor="middle">۲. راستی‌آزمایی</text>
+    <text y="96" fill="#9a9a9a" font-family="Tahoma,sans-serif" font-size="11" text-anchor="middle">امضای PGP</text>
+  </g>
+
+  <line x1="319" y1="150" x2="382" y2="150" stroke="#f5c400" stroke-width="2.5"/>
+  <polygon points="382,143 395,150 382,157" fill="#f5c400"/>
+
+  <!-- مرحله ۳: نوشتن روی USB -->
+  <g transform="translate(434, 150)">
+    <circle r="50" fill="#1c1c1c" stroke="#f5c400" stroke-width="3"/>
+    <rect x="-20" y="-14" width="40" height="28" rx="4" fill="none" stroke="#f5c400" stroke-width="2.5"/>
+    <rect x="-28" y="-8" width="8" height="16" fill="none" stroke="#f5c400" stroke-width="2"/>
+    <line x1="28" y1="-5" x2="36" y2="-5" stroke="#f5c400" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="28" y1="5" x2="36" y2="5" stroke="#f5c400" stroke-width="2.5" stroke-linecap="round"/>
+    <text y="78" fill="#e8e8e8" font-family="Tahoma,sans-serif" font-size="14" font-weight="bold" text-anchor="middle">۳. نوشتن روی USB</text>
+    <text y="96" fill="#9a9a9a" font-family="Tahoma,sans-serif" font-size="11" text-anchor="middle">dd یا Rufus</text>
+  </g>
+
+  <line x1="486" y1="150" x2="549" y2="150" stroke="#f5c400" stroke-width="2.5"/>
+  <polygon points="549,143 562,150 549,157" fill="#f5c400"/>
+
+  <!-- مرحله ۴: بوت -->
+  <g transform="translate(601, 150)">
+    <circle r="50" fill="#f5c400" stroke="#f5c400" stroke-width="3"/>
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#0a0a0a" stroke-width="3"/>
+    <line x1="0" y1="-24" x2="0" y2="-4" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"/>
+    <text y="78" fill="#f5c400" font-family="Tahoma,sans-serif" font-size="14" font-weight="bold" text-anchor="middle">۴. بوت</text>
+    <text y="96" fill="#9a9a9a" font-family="Tahoma,sans-serif" font-size="11" text-anchor="middle">اجرای Tails</text>
+  </g>
+
+  <text x="350" y="275" fill="#4caf50" font-family="Tahoma,sans-serif" font-size="14" font-weight="bold" text-anchor="middle">✓ پس از بوت، محیط امن و ناشناس Tails آماده است</text>
+</svg>
+<div class="caption">چهار مرحله نصب Tails — از دانلود تا بوت</div>
+</div>
+
+    <div class="card">
+        <strong>💡 نکته:</strong> توصیه می‌شود یک فلش USB پشتیبان نیز تهیه کنید،
+        به‌ویژه اگر از حافظه پایدار استفاده می‌کنید. در صورت خرابی فلش اصلی،
+        داده‌های رمزنگاری‌شده قابل بازیابی نخواهند بود مگر از نسخه پشتیبان[reference:66].
+    </div>
+</section>
+
+
+<!-- ================= صفحه ۱۲: بخش ۱۰ ================= -->
+<section class="page" id="s10">
+    <h2><span class="num">۱۰</span> جمع‌بندی</h2>
+
+    <p>
+        <span class="highlight">Tails</span> یکی از برجسته‌ترین پروژه‌های متن‌باز در حوزه
+        امنیت و حریم خصوصی است. این سیستم‌عامل با ترکیب سه ایده اصلی —
+        <strong>اجبار Tor</strong>، <strong>فراموش‌کاری (Amnesia)</strong> و
+        <strong>قابلیت حمل</strong> — محیطی فراهم می‌کند که کاربر می‌تواند
+        روی تقریباً هر کامپیوتری، بدون برجای گذاشتن ردی، به‌صورت ناشناس
+        فعالیت کند.
+    </p>
+
+    <div class="card card-yellow">
+        <h3 style="margin-top: 0;">📋 خلاصه مزایا</h3>
+        <ul>
+            <li>عدم برجای گذاشتن هیچ داده‌ای روی کامپیوتر میزبان</li>
+            <li>اجبار عبور تمام ترافیک از Tor</li>
+            <li>مجموعه کاملی از ابزارهای رمزنگاری و حریم خصوصی</li>
+            <li>قابلیت حمل بالا — اجرا از USB روی هر کامپیوتری</li>
+            <li>رایگان، متن‌باز و قابل راستی‌آزمایی</li>
+            <li>پشتیبانی از حافظه پایدار رمزنگاری‌شده با LUKS</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3 style="margin-top: 0;">⚠️ خلاصه محدودیت‌ها</h3>
+        <ul>
+            <li>سرعت پایین به دلیل Tor</li>
+            <li>ناسازگاری با برخی سخت‌افزارها (ARM، برخی GPUها)</li>
+            <li>عدم محافظت در برابر حملات سخت‌افزاری/فریم‌ور (Evil Maid)</li>
+            <li>نیاز به به‌روزرسانی منظم و رعایت OpSec</li>
+            <li>مناسب برای استفاده روزمره همه‌منظوره نیست</li>
+        </ul>
+    </div>
+
+    <p>
+        در نهایت، Tails ابزاری قدرتمند برای <span class="highlight">روزنامه‌نگاران،
+        فعالان مدنی، افشاگران و هر کسی که به ناشناسی آنلاین نیاز دارد</span> است.
+        اما مانند هر ابزار امنیتی دیگری، اثربخشی آن به دانش، دقت و رفتار
+        کاربر بستگی دارد. شناخت قابلیت‌ها و محدودیت‌های Tails — همان‌طور که
+        در این تحقیق بررسی شد — نخستین گام در استفاده صحیح و مسئولانه از آن است.
+    </p>
+</section>
+
+
+<!-- ================= صفحه ۱۳: منابع ================= -->
+<section class="page" id="refs">
+    <h2><span class="num">★</span> منابع</h2>
+
+    <div class="card" style="line-height: 2.2;">
+        <p style="margin-bottom: 10px;">[1] Tails Project. <em>Features and included software</em>. tails.net.</p>
+        <p style="margin-bottom: 10px;">[2] Tails Project. <em>Persistent Storage</em>. tails.net.</p>
+        <p style="margin-bottom: 10px;">[3] Tails Project. <em>History — Milestones</em>. tails.net.</p>
+        <p style="margin-bottom: 10px;">[4] Whonix Project. <em>Anonymity Operating System Comparison: Whonix vs Tails vs Tor Browser Bundle</em>. whonix.org, 2025.</p>
+        <p style="margin-bottom: 10px;">[5] Shattered.io. <em>Tails vs Whonix vs Qubes OS: 2 Go, 4 Go, 32 Go RAM</em>. 2026.</p>
+        <p style="margin-bottom: 10px;">[6] Tails Project. <em>Interview with Robin, April 2025</em>. tails.net.</p>
+        <p style="margin-bottom: 10px;">[7] Wikipedia. <em>Tails (操作系统)</em>. fa/zh.wikipedia.org.</p>
+        <p style="margin-bottom: 10px;">[8] Privacy Guides Community. <em>Tails OS and Spyware / Evil Maid Attack</em>. discuss.privacyguides.net, 2025.</p>
+        <p style="margin-bottom: 10px;">[9] LWN.net. <em>Tails Practical? / System Requirements</em>. 2025.</p>
+        <p style="margin-bottom: 10px;">[10] Tails Project. <em>Install Tails from Debian or Ubuntu using the command line and GnuPG</em>. tails.net.</p>
+        <p style="margin-bottom: 10px;">[11] Tails Project. <em>Veil of Vigilance: Tails 6.0’s New Frontiers in Surveillance Resistance</em>. Linux Journal, 2025.</p>
+    </div>
+</section>
+
+
+<!-- ================= صفحه پایان ================= -->
+<section class="page end-page">
+    <div class="end-icon">🦊</div>
+    <h2 style="border: none; color: var(--yellow);">پایان</h2>
+    <div class="end-divider"></div>
+    <p>
+        با تشکر از توجه شما
+    </p>
+    <p style="margin-top: 8px; font-size: 0.9rem;">
+        تحقیق درس آزمایشگاه سیستم‌عامل لینوکس — استاد میرزانژاد
+    </p>
+    <p style="margin-top: 4px; font-size: 0.85rem; color: #666;">
+        محمد رجبی
+    </p>
+</section>
+
+</body>
+</html>
